@@ -38,16 +38,91 @@ $(function(){
 			}, stepTime);
 	}
 
-	function setSectionHeight(){
+
+	/***** 사건 카드 생성 관련 함수들 *****/
+	function resetSectionBody(){
 		$(".each-section").each(function(index,item){
-			var $sectionBody = $(item).find(".section-body");
-			var sec_item = $sectionBody.find(".timeline-el");
-			var temH = 0;
-			var item_margin = 20;
-			var last_item_pos = Number(sec_item.eq(sec_item.length-1).css("top").replace("px",""));
-			temH = last_item_pos + sec_item.eq(sec_item.length-1).height() + item_margin;
-			console.log(temH);
-			$sectionBody.css({"height":temH+"px"});
+			$(item).find(".section-body").html("");
+		});
+	};
+
+	function getCardTemplate(elType, cardid){
+		var id = cardid;
+		switch (elType){
+			case "card":
+				return "<div class='timeline-el el-card el-with-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='img/"+id+".jpg' alt=''></div><div class='card-thumb'><img src='' alt=''><div class='thumb-shade'></div></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div><div class='view-card'><p>사건 설명 더보기 +</p></div></div><div class='card-share'><div class='share_fb'><a onclick='sendSns('facebook'); return false;'><img src='img/fb_icon_line_w.png' alt='페이스북' /></a></div><div class='share_tw'><a onclick='sendSns('twitter'); return false;'><img src='img/tw_icon_line_w.png' alt='트위터' /></a></div></div><div class='show-rel-card'><div class='rel-icon'><img src='img/rel-icon-2.png' alt='관련사건타래보기'><span class='icon-desc'>사건 타래 보기</span></div></div></div>";
+				break;
+			case "simple-card":
+				return "<div class='timeline-el el-simple-card el-no-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='' alt=''></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div></div></div>";
+				break;
+			case "simple":
+				return "<div class='timeline-el el-simple "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='card-text'><p class='card-title'></p></div></div></div>";
+				break;
+		}
+	};
+
+
+
+	function makeSectionCard(){
+		resetSectionBody();
+		var data = cardData;
+		for(d=0;d<data.length;d++){
+			var sec = String(data[d]["sec"]).replace("s","");
+			var cardTemplate = getCardTemplate( data[d]["elType"],data[d]["id"] );
+			var $sectionBody = $(".each-section").eq(sec-1).find(".section-body");
+
+			$sectionBody.append(cardTemplate);
+			var $this_card = $("."+data[d]["id"]);
+
+			$this_card.find(".el-year .year").html(data[d]["ymd"]);
+			$this_card.find(".card-title").html(data[d]["title"]);
+			$this_card.addClass("el-"+data[d]["line"]);
+
+			if(data[d]["line"]=="center"){
+				$this_card.find(".arrow").addClass("arrow-up");
+				$this_card.find(".arrow img").attr("src", "img/arrow-up.png");
+			}else if(data[d]["line"]=="right"){
+				$this_card.find(".arrow").addClass("arrow-right");
+				$this_card.find(".arrow img").attr("src", "img/arrow-right.png");
+			}else if(data[d]["line"]=="left"){
+				$this_card.find(".arrow").addClass("arrow-left");
+				$this_card.find(".arrow img").attr("src", "img/arrow-left.png");
+			}
+
+			if( (data[d]["pointTxt"]!==null )&&$this_card.find(".card-desc-point").length){
+				$this_card.find(".card-desc-point").html(data[d]["pointTxt"]);
+			}
+
+			if( (data[d]["thumb"]!==null )&&$this_card.find(".card-thumb").length){
+				$this_card.find(".card-thumb img").attr("src", "img/"+data[d]["id"]+".jpg");
+			}
+
+			if(data[d]["relCode"] !== null ){
+				$this_card.append("<div class='show-rel-card'><div class='rel-icon'><img src='img/rel-icon-2.png' alt='관련사건타래보기'><span class='icon-desc'>사건 타래 보기</span></div></div>");
+			}
+			
+			if(d==data.length-1){
+				setSectionHeight();
+				addCardNavi();
+			}
+		}
+
+
+	};
+
+	function setSectionHeight(){
+		var $allSec = $(".each-section");
+		$allSec.each(function(index,item){
+			var sec_item = $(item).find(".timeline-el");
+			if( sec_item.length !==0){
+				var temH = 0;
+				var item_margin = 20;
+				console.log(sec_item.length);
+				var last_item_pos = Number(sec_item.eq(sec_item.length-1).css("top").replace("px",""));
+				temH = last_item_pos + sec_item.eq(sec_item.length-1).height() + item_margin;
+				console.log(temH);
+				$(item).find(".section-body").css({"height":temH+"px"});
+			}
 		})	
 		getTimelineHeight();
 	};
@@ -57,10 +132,15 @@ $(function(){
 			$(item).append("<div class='filter-card-navi'><div class='arr-up'><img src='img/arr-up-or.png' alt='필터링사건안에서이동'></div><div class='arr-down'><img src='img/arr-down-or.png' alt='필터링사건안에서이동'></div><div class='filter-exit'><img src='img/exit-icon-or.png' alt='필터링끄기'></div><div class='arr-info'><span class='f_i'></span><span class='slash'>/</span><span class='total'></span></div></div>");
 		});
 	};
+
 	function getTimelineHeight(){
 		timelineEndPos = $(".timeline-holder").offset().top + $(".timeline-holder").height();
 	};
 
+	/***** 사건 카드 생성 관련 함수들 *****/
+
+
+	
 	function makePopCard(){
 
 	};
@@ -68,6 +148,7 @@ $(function(){
 	function hidePopCard(){
 		$(".popUp-front").css({"top":"100px", "opacity":"0"});
 	}
+
 
 
 	/**** 카드 필터링 관련 함수들 ***/
@@ -140,9 +221,8 @@ $(function(){
 
 	/******** init page ********/
 	function init(){
-		setSectionHeight();
+		makeSectionCard();
 		hidePopCard();
-		addCardNavi();
 	}
 
 	$(".loading-page").fadeOut(200, function(){
@@ -200,13 +280,13 @@ $(function(){
 		$sec_item = $(".timeline-el"),
 		$sec_title = $(".sec-title");
 
-	$(".el-card .card-body").on("mouseover", function(e){
+	$(".timeline-holder").delegate(".el-card .card-body", "mouseover", function(e){
 		if(!isMobile){
 			$(this).addClass("card-body-hover");
 		}
-	}).on("mouseout", function(){
+	}).delegate(".el-card .card-body", "mouseout", function(){
 		$(this).removeClass("card-body-hover");
-	}).on("click", function(){
+	}).delegate(".el-card .card-body", "click", function(){
 		$(".popUp-layer").show();
 		$(".popUp-front").animate({"top":"0px", "opacity":"1"},400,"easeOutCubic");
 	});

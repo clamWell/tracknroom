@@ -1,6 +1,7 @@
 <?php
 	$css = "css/style.css?" . filemtime("css/style.css");
 	$js = "js/custom.js?" . filemtime("js/custom.js");
+	$cardData = "js/cardData.js?" . filemtime("js/cardData.js");
 ?>
 
 <!doctype html>
@@ -221,7 +222,7 @@
 						<div class="timeline-holder">
 							<div class="back-line">
 								<div class="line line--left">
-									<p class="line-head">사회 <span>시대배경, 언론</span></p>
+									<p class="line-head">사회 <span>당시 문화, 언론</span></p>
 									<div class="line-body"></div>
 								</div>
 								<div class="line line--center">
@@ -290,6 +291,22 @@
 										</div>
 
 										<div class="timeline-el el-simple-card el-no-img el-right s1-e3 el-with-rel">
+											<p class="el-year"><span class="year">1967</span><span class="spot"></span></p>
+											<div class="card-body">
+												<div class="arrow arrow-right">
+													<img src="img/arrow-right.png" alt="">
+												</div>
+												<div class="card-text">
+													<p class="card-title">최초의 음란물 재판 '성냥갑 마야사건'</p>
+													<p class="card-desc-point">성냥갑에 인쇄된 명화 음란성 문제되자, 대법원 '명화라도 불순한 목적으로 사용하면 음란물이 될 수 있다'고 유죄 판결을 내리다.</p>
+												</div>
+											</div>
+											<div class="show-rel-card">
+												<div class="rel-icon"><img src="img/rel-icon-2.png" alt="관련사건타래보기"><span class="icon-desc">사건 타래 보기</span></div>
+											</div>
+										</div>
+
+										<div class="timeline-el el-simple-card el-no-img el-right s1-e4 el-with-rel">
 											<p class="el-year"><span class="year">1973</span><span class="spot"></span></p>
 											<div class="card-body">
 												<div class="arrow arrow-right">
@@ -414,14 +431,14 @@
 											</div>
 										</div>
 
-										<div class="timeline-el el-card el-with-img el-center s3-e3">
+										<div class="timeline-el el-card el-with-img el-center s3-e4">
 											<p class="el-year"><span class="year">1992.1</span><span class="spot"></span></p>
 											<div class="card-body">
 												<div class="arrow arrow-up">
 													<img src="img/arrow-up.png" alt="">
 												</div>
 												<div class="card-thumb">
-													<img src="img/s3-e3.jpg" alt="">
+													<img src="img/s3-e4.jpg" alt="">
 													<div class="thumb-shade"></div>
 												</div>
 												<div class="card-text">
@@ -1818,6 +1835,7 @@
 		<!--// After Loading (E)-->
 	</div>
 	<script type="text/javascript" src="<?php echo $js; ?>"></script>
+	<script type="text/javascript" src="<?php echo $cardData; ?>"></script>
 
 	<!-- imp 2020.04 YJ 추가-->
 	 <SCRIPT type="text/javaSCRIPT">

@@ -192,7 +192,7 @@ transition: filter 2s ease 0s; opacity: 0.5;    letter-spacing: 5px; }
 .bg--1 .el--1{ position: absolute; right:0;bottom:0;}
 .bg--1 .el--1 img{ opacity: 0.2;}
 
-.timeline-area { width: 100%;overflow-x: hidden; overflow-y: visible; box-sizing: border-box; padding-top: 160px; position: relative; }
+.timeline-area { width: 100%; /*overflow-x: hidden; */overflow-y: visible; box-sizing: border-box; padding-top: 160px; position: relative; }
 .timeline-holder { width:100%; max-width: 1000px;min-height:2000px; margin: 0 auto; position: relative;opacity: 0;   }
 .back-line { width: 100%; height: 100%; position: absolute; top: 0; left: 0;z-index:1; }
 .back-line .line { height: 100%;  position: absolute;}
@@ -220,7 +220,7 @@ text-align: center; font-size:16px; }
 
 .timeline-el {position: absolute;}
 .el-card { width: 500px;border: 3px solid transparent; box-sizing: border-box;}
-.timeline-el .el-year {color: #fff; position: absolute;width: 100px;}
+.timeline-el .el-year {color: #fff; position: absolute;width: 80px;}
 .timeline-el .el-year .year { text-shadow: 1px 1px 0px #111; font-size: 13px;letter-spacing: 0.02em;position: relative;  width: 100%;display: block;text-align: center;}
 .timeline-el .el-year .spot {position: absolute; width: 4px; height: 4px; background: #fff;border-radius: 50%;top: -5px;left: 50%;margin-left: -2px;}
 .timeline-el .card-body { background: #fff; box-sizing: border-box; padding:25px; border-radius: 2px; transition:all 0.15s ease 0s; 
@@ -282,13 +282,19 @@ background:url("../img/thumb-shade.png") repeat-y;  background-position: right; 
 
 /**** 우측라인, 법라인 ***/
 .el-right {right: 0;}
-.el-right .el-year { right: -90px; top: 30px;}
+.el-right .el-year { right: -80px; top: 30px;}
 .el-right .el-year .spot { }
 .el-right { right:40px;  }
 .timeline-el .card-body .arrow-right { right: -15px; top: 10px; } 
 
 /**** 좌측라인, 사회문화라인 ***/
 .el-left {left: 0;}
+.el-left .el-year { left: -80px; top: 30px;}
+.el-left .el-year .spot { }
+.el-left { left:40px;  }
+.timeline-el .card-body .arrow-left { left: -15px; top: 10px; } 
+
+
 
 /**** 중앙라인, 사건라인 ***/
 .el-center {left: 50%; }
@@ -303,41 +309,56 @@ background:url("../img/thumb-shade.png") repeat-y;  background-position: right; 
 .s1-e1 .card-body { }
 .s1-e1 { top: 0px;}
 .s1-e2 { top: 300px;}
-.s1-e3 { top: 600px;}
-
+.s1-e3 { top: 450px;}
+.s1-e4 { top: 750px;}
 
 .s2-e1 { top: 0px;}
 .s2-e2 { top: 250px;}
 
-.s3-e1 { top: 0px;}
-.s3-e2 { top: 250px;}
-.s3-e3 { top: 500px;}
+.s3-e1 { top: 50px;}
+.s3-e2 { top: 350px;}
+.s3-e3 { top: 580px;}
+.s3-e4 { top: 750px;}
 
 .s4-e1 { top: 0px;}
-.s4-e2 { top: 250px;}
+.s4-e2 { top: 300px;}
+.s4-e3 { top: 450px;}
+.s4-e4 { top: 700px;}
 
 .s5-e1 { top: 0px;}
 .s5-e2 { top: 250px;}
 .s5-e3 { top: 500px;}
-.s5-e4 { top:750px;}
+.s5-e4 { top: 750px;}
+.s5-e5 { top: 1000px;}
+.s5-e6 { top: 1250px;}
 
 .s6-e1 { top: 0px;}
 .s6-e2 { top: 250px;}
+.s6-e3 { top: 500px;}
 
 .s7-e1 { top: 0px;}
 .s7-e2 { top: 250px;}
 .s7-e3 { top: 500px;}
 .s7-e4 { top: 750px;}
+.s7-e5 { top: 1050px;}
 
 .s8-e1 { top: 0px;}
 .s8-e2 { top: 250px;}
+.s8-e3 { top: 500px;}
+.s8-e4 { top: 750px;}
+.s8-e5 { top: 1000px;}
+.s8-e6 { top: 1250px;}
+.s8-e7 { top: 1250px;}
+.s8-e8 { top: 1250px;}
+.s8-e9 { top: 1250px;}
 
+/*
 .s9-e1 { top: 0px;}
 .s9-e2 { top: 250px;}
 .s9-e3 { top: 500px;}
 .s9-e4 { top: 750px;}
 .s9-e5 { top: 1000px;}
-.s9-e6 { top: 1250px;}
+.s9-e6 { top: 1250px;}*/
 
 .s10-e1 { top: 0px;}
 .s10-e2 { top: 250px;}
@@ -348,9 +369,14 @@ background:url("../img/thumb-shade.png") repeat-y;  background-position: right; 
 .s11-e1 { top: 0px;}
 .s11-e2 { top: 250px;}
 .s11-e3 { top: 500px;}
+.s11-e4 { top: 750px;}
+.s11-e5 { top: 1000px;}
+.s11-e6 { top: 1250px;}
 
 .s12-e1 { top: 0px;}
 .s12-e2 { top: 250px;}
+.s12-e3 { top: 500px;}
+
 
 .s13-e1 { top: 0px;}
 .s13-e2 { top: 250px;}
@@ -363,15 +389,26 @@ background:url("../img/thumb-shade.png") repeat-y;  background-position: right; 
 .s13-e9 { top: 1850px;}
 .s13-e10 { top: 1950px;}
 .s13-e11 { top: 2050px;}
+.s13-e12 { top: 2250px;}
+.s13-e13 { top: 2500px;}
+.s13-e14 { top: 2750px;}
+
 
 .s14-e1 { top: 0px;}
 .s14-e2 { top: 250px;}
 .s14-e3 { top: 500px;}
 .s14-e4 { top: 900px;}
 .s14-e5 { top: 1000px;}
+.s14-e6 { top: 1250px;}
+.s14-e7 { top: 1500px;}
+.s14-e8 { top: 1750px;}
+.s14-e9 { top: 1850px;}
+.s14-e10 { top: 1950px;}
 
 .s15-e1 { top: 0px;}
 .s15-e2 { top: 250px;}
+
+
 
 /**** 사건개별 위치조정 ***/
 
