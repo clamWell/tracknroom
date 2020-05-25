@@ -50,7 +50,7 @@ $(function(){
 		var id = cardid;
 		switch (elType){
 			case "card":
-				return "<div class='timeline-el el-card el-with-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='img/"+id+".jpg' alt=''></div><div class='card-thumb'><img src='' alt=''><div class='thumb-shade'></div></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div><div class='view-card'><p>사건 설명 더보기 +</p></div></div><div class='card-share'><div class='share_fb'><a onclick='sendSns('facebook'); return false;'><img src='img/fb_icon_line_w.png' alt='페이스북' /></a></div><div class='share_tw'><a onclick='sendSns('twitter'); return false;'><img src='img/tw_icon_line_w.png' alt='트위터' /></a></div></div><div class='show-rel-card'><div class='rel-icon'><img src='img/rel-icon-2.png' alt='관련사건타래보기'><span class='icon-desc'>사건 타래 보기</span></div></div></div>";
+				return "<div class='timeline-el el-card el-with-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='img/"+id+".jpg' alt=''></div><div class='card-thumb'><img src='' alt=''><div class='thumb-shade'></div></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div><div class='view-card'><p>사건 설명 더보기 +</p></div></div><div class='card-share'><div class='share_fb'><a onclick='sendSns('facebook'); return false;'><img src='img/fb_icon_line_w.png' alt='페이스북' /></a></div><div class='share_tw'><a onclick='sendSns('twitter'); return false;'><img src='img/tw_icon_line_w.png' alt='트위터' /></a></div></div></div>";
 				break;
 			case "simple-card":
 				return "<div class='timeline-el el-simple-card el-no-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='' alt=''></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div></div></div>";
@@ -73,6 +73,7 @@ $(function(){
 
 			$sectionBody.append(cardTemplate);
 			var $this_card = $("."+data[d]["id"]);
+			$this_card.attr("data-id", data[d]["id"]);
 
 			$this_card.find(".el-year .year").html(data[d]["ymd"]);
 			$this_card.find(".card-title").html(data[d]["title"]);
@@ -99,6 +100,7 @@ $(function(){
 
 			if(data[d]["relCode"] !== null ){
 				$this_card.append("<div class='show-rel-card'><div class='rel-icon'><img src='img/rel-icon-2.png' alt='관련사건타래보기'><span class='icon-desc'>사건 타래 보기</span></div></div>");
+				$this_card.find(".show-rel-card").attr("data-rel-id", data[d]["relCode"]);
 			}
 			
 			if(d==data.length-1){
@@ -128,7 +130,7 @@ $(function(){
 	};
 
 	function addCardNavi(){
-		$sec_item.each(function(index,item){
+		$(".timeline-el").each(function(index,item){
 			$(item).append("<div class='filter-card-navi'><div class='arr-up'><img src='img/arr-up-or.png' alt='필터링사건안에서이동'></div><div class='arr-down'><img src='img/arr-down-or.png' alt='필터링사건안에서이동'></div><div class='filter-exit'><img src='img/exit-icon-or.png' alt='필터링끄기'></div><div class='arr-info'><span class='f_i'></span><span class='slash'>/</span><span class='total'></span></div></div>");
 		});
 	};
@@ -140,50 +142,154 @@ $(function(){
 	/***** 사건 카드 생성 관련 함수들 *****/
 
 
-	
-	function makePopCard(){
+	/***사건 팝업카드 관련**/
+	function makePopCard(cardId){
+		var selectItemData;
+		for(c=0;c<cardData.length;c++){
+			if(cardData[c]["id"] == cardId){
+				selectItemData = cardData[c];
+				break;
+			}
+		}
+		console.log(selectItemData);
+		$(".popUp-front").find(".year").html(selectItemData["ymd"]);
+		$(".popUp-front").find(".thumb-holder img").attr("src", "img/"+selectItemData["thumb"]+".jpg");
+		$(".popUp-front").find(".popUp-card-title").html(selectItemData["title"]);
+		$(".popUp-front").find(".popUp-card-point-text p").html(selectItemData["pointTxt"]);
+		$(".popUp-front").find(".popUp-card-full-text").html(selectItemData["fullTxt"]);
+		
+		/*
+		if(selectItemData["relCode"]!==null){
+			$(".popUp-body .show-rel-card").show();
+			$(".popUp-body .show-rel-card").attr("data-rel-id", selectItemData["relCode"]);
+		}else{
+			$(".popUp-body .show-rel-card").hide();
+		}*/
 
+		var tagArr = new Array;
+		if(selectItemData["tag"]!==null){
+			tagArr = selectItemData["tag"].split(",");
+			$(".popUp-card-tag .tag-list").html("");
+			tagArr.map(function(v,i,a){
+				if(a[i].length>0){
+					var spanTag = "<span>"+a[i]+"</span>";
+					$(".popUp-card-tag .tag-list").append(spanTag);
+				}
+			});
+			$(".popUp-card-tag").show();
+		}else{
+			$(".popUp-card-tag").hide();
+		}
+
+		fadeInPopCard();
 	};
-
 	function hidePopCard(){
 		$(".popUp-front").css({"top":"100px", "opacity":"0"});
 	}
+	function fadeInPopCard(){
+		$(".popUp-layer").show();
+		$(".popUp-front").animate({"top":"0px", "opacity":"1"},400,"easeOutCubic");
+	}
+	/***사건 팝업카드 관련**/
 
+	
+	
+	/***** 사건 타래 관련 함수 *****/
+	var relAct = false;
+
+	$(".section-body").delegate(".show-rel-card","click", function(){
+		if(relAct ==false ){
+			relAct = true;
+			var relCode = $(this).attr("data-rel-id");
+			findRelCard(relCode);
+		}
+	});
+	
+	function findRelCard(code){
+		$(".fixed-focus-item-list .focus-title .code").html(code);
+		$(".fixed-focus-item-list .item-list-wrap ul").html("");
+
+		var relCardIdArr = new Array;
+		for(c=0;c<cardData.length;c++){
+			if(cardData[c]["relCode"] == code){
+				relCardIdArr.push(cardData[c]["id"]);
+				pushFocusItem(cardData[c]["title"]);
+			}
+		}
+		getRelCardPos(relCardIdArr);
+		focusingCard(relCardIdArr);
+	};
+
+	var relCardPos;
+	function getRelCardPos(arr){
+		relCardPos = [];
+		for(a=0; a<arr.length;a++){
+			relCardPos.push( $("."+arr[a]).offset().top);
+		}
+		afterRelAct();
+		console.log(relCardPos);
+		return relCardPos;
+	};
+
+
+	function afterRelAct(){
+		var firstRelItemPos = relCardPos[0]-(screenHeight*0.4);
+		$("html, body").animate({scrollTop: firstRelItemPos}, 700, "easeOutCubic");
+		makeFilterToggleUnable();
+		$(".fixed-focus-item-list").fadeIn();
+	};
+
+	function focusingCard(arr){
+		$(".timeline-el").addClass("timeline-el-off");
+		$(".sec-title").addClass("sec-title-off");
+		for(a=0; a<arr.length;a++){
+			$("."+arr[a]).addClass("timeline-el-focus");
+			$("."+arr[a]).attr("data-focus-index", a);
+			$("."+arr[a]).find(".f_i").html(a+1);
+			$("."+arr[a]).find(".total").html(arr.length);
+		};
+		$(".timeline-el-focus").eq(0).find(".arr-up").hide();
+		$(".timeline-el-focus").eq(arr.length-1).find(".arr-down").hide();
+	};
+
+	function makeFilterToggleUnable(){
+		$(".filter-toggle-button").addClass("button-block");
+		filterTabOpen=false;
+		$(".filter-toggle").removeClass("filter-toggle-on");
+		$(".filter-list").slideUp();
+	};
+
+	function makeFilterToggleAble(){
+		$(".filter-toggle-button").removeClass("button-block");
+	};
+
+	function pushFocusItem(itemTitle){
+		var listItem = "<li>"+itemTitle+"</li>";
+		$(".fixed-focus-item-list .item-list-wrap ul").append(listItem);
+	};	
+
+	/***** 사건 타래 관련 함수 *****/
 
 
 	/**** 카드 필터링 관련 함수들 ***/
-	function focusingFilterdCard(arr){
-		$sec_item.addClass("timeline-el-off");
-		$sec_title.addClass("sec-title-off");
-		for(a=0; a<arr.length;a++){
-			$sec_item.eq(arr[a]).addClass("timeline-el-focus");
-			$sec_item.eq(arr[a]).attr("data-focus-index", a);
-			$sec_item.eq(arr[a]).find(".f_i").html(a+1);
-			$sec_item.eq(arr[a]).find(".total").html(arr.length);
+	function getFilterdCard(code){
+		var tag = code.replace("#", "");
+		console.log(tag);
+		var filteredCardIdArr = new Array;
+		for(c=0;c<cardData.length;c++){
+			if(cardData[c]["tag"] == tag){
+				filteredCardIdArr.push(cardData[c]["id"]);
+			}
 		}
-		$(".timeline-el-focus").eq(0).find(".arr-up").hide();
-		$(".timeline-el-focus").eq(arr.length-1).find(".arr-down").hide();
 
-
-	};
-	
-	function getFilterdCard(){
-		filteredCardIndex = [];
-		
-		// 필터링 되야하는 카드의 인덱스 값
-		filteredCardIndex.push(0);
-		filteredCardIndex.push(5);
-		filteredCardIndex.push(8);
-		filteredCardIndex.push(20);
-
-		focusingFilterdCard( filteredCardIndex );
-		getFilterdCardPos(filteredCardIndex);
+		focusingCard(filteredCardIdArr);
+		getFilterdCardPos(filteredCardIdArr);
 	};
 
 	function getFilterdCardPos(arr){
 		filteredCardPos = [];
 		for(a=0; a<arr.length;a++){
-			filteredCardPos.push($sec_item.eq(arr[a]).offset().top);
+			filteredCardPos.push( $("."+arr[a]).offset().top);
 		}
 		afterFitered();
 		return filteredCardPos;
@@ -197,20 +303,39 @@ $(function(){
 		$(".filter-list").slideUp();
 	};
 
-
-	function resolveFilter(){
+	function resolveFocusing(){
 		$(".filter-list ul li").removeClass("on");
 		$(".filter-list ul li").remove(".exit");
-		$sec_item.removeClass("timeline-el-off");
-		$sec_item.removeClass("timeline-el-focus");
-		$sec_title.removeClass("sec-title-off");
-		$sec_item.removeAttr("data-focus-index");
-	
+		$(".timeline-el").removeClass("timeline-el-off timeline-el-focus");
+		$(".timeline-el").removeAttr("data-focus-index");
+		$(".sec-title").removeClass("sec-title-off");
+		$(".fixed-focus-item-list").hide();
+		$(".filter-toggle-button").removeClass("filter-toggle-button-selected");
+		makeFilterToggleAble();
 	};
 	/**** 카드 필터링 관련 함수들 ***/
 
 
-		
+	// 2 cut frame Animation
+	function makeFrameAni(ob, time){
+		var $itemDiv = ob;
+		var moveValue = $itemDiv.width() / 2;
+		function itemBlinking(){
+			$itemDiv.css({"left": -moveValue + "px"});
+			setTimeout(function(){
+				$itemDiv.css({"left": 0});
+				itemBlinkingReverse()
+			}, time);
+		}
+		function itemBlinkingReverse(){
+			setTimeout(function(){
+				$itemDiv.css({"left": -moveValue + "px"});
+			}, time);
+		}
+		var itemBlinkingRepeat = setInterval( function(){ itemBlinking() }, time*2);
+	};
+	 makeFrameAni($(".top-graphic-device img"), 600);		
+
 
 	/******** 모바일 전용 조정 ********/
 	if(isMobile==true){
@@ -220,9 +345,12 @@ $(function(){
 	/******** 모바일 전용 조정 ********/
 
 	/******** init page ********/
+
 	function init(){
 		makeSectionCard();
 		hidePopCard();
+		var adjValue = (($(".story-header").height()-$(".story-header-front").height())/2)-40;
+		$(".story-header-front").animate({"top":adjValue+"px", "opacity":"1"}, 500);
 	}
 
 	$(".loading-page").fadeOut(200, function(){
@@ -276,9 +404,7 @@ $(function(){
 	var filterTabOpen = false,
 		filterAct = false,
 		filteredCardIndex = new Array,
-		filteredCardPos = new Array,
-		$sec_item = $(".timeline-el"),
-		$sec_title = $(".sec-title");
+		filteredCardPos = new Array;
 
 	$(".timeline-holder").delegate(".el-card .card-body", "mouseover", function(e){
 		if(!isMobile){
@@ -286,9 +412,9 @@ $(function(){
 		}
 	}).delegate(".el-card .card-body", "mouseout", function(){
 		$(this).removeClass("card-body-hover");
-	}).delegate(".el-card .card-body", "click", function(){
-		$(".popUp-layer").show();
-		$(".popUp-front").animate({"top":"0px", "opacity":"1"},400,"easeOutCubic");
+	}).delegate(".el-card .card-body", "click", function(e){
+		var thisCardId = $(this).parent(".timeline-el").attr("data-id");
+		makePopCard(thisCardId);
 	});
 
 	$("#CARD_CLOSE_BTN, .popUp-back").on("click", function(){
@@ -309,47 +435,55 @@ $(function(){
 	});
 
 
-	$("#FILTER_TEST").on("click", function(e){
+	$(".filter-list ul li").on("click", function(e){
 		if(filterAct==false && (!$(this).hasClass("on"))){
-			filterAct = true;
-			$(".filter-list ul li").removeClass("on");
-			$(this).addClass("on");
-			$(this).append("<span class='exit'></span>");
-			getFilterdCard();
-		}else if($(this).hasClass("on")){
+			filterAct = true;	
+			var filterCode = $(this).find("em").html();
+			$(".hidden-status .value").html(filterCode);
+			$(".filter-toggle-button").addClass("filter-toggle-button-selected");
+			getFilterdCard(filterCode);
+		}
+	});
+
+	$(".hidden-status .user-select").on("click", function(e){
+		if(filterAct==true){
 			filterAct = false;
-			resolveFilter();
+			resolveFocusing();
 		}
 	});
 
 	$(".section-body").delegate(".filter-exit", "click", function(e){
 		if(filterAct==true){
 			filterAct = false;
-			resolveFilter();	
+		}else if(relAct==true){
+			relAct = false;
 		}
+		resolveFocusing();
 	});
 
 	var filterdItem;
+	var relItem;
 	$(".section-body").delegate(".arr-up", "click", function(e){
-		if(filterAct==true){
-			filterdItem = $(".timeline-el-focus");
-			var f_i = $(this).parent(".filter-card-navi").parent(".timeline-el").attr("data-focus-index");
-			if(f_i ==0){
-				
-			}else{
+		var f_i = $(this).parent(".filter-card-navi").parent(".timeline-el").attr("data-focus-index");
+		if(f_i !== 0){
+			if(filterAct==true){
 				var movePos = filteredCardPos[Number(f_i)-1]-(screenHeight*0.4);
-				$("html, body").animate({scrollTop: movePos}, 700, "easeOutCubic");
+			}else if(relAct ==true){
+				var movePos = relCardPos[Number(f_i)-1]-(screenHeight*0.4);
 			}
+			$("html, body").animate({scrollTop: movePos}, 700, "easeOutCubic");
 		}
+		
 	});
 
 	$(".section-body").delegate(".arr-down", "click", function(e){
+		var f_i = $(this).parent(".filter-card-navi").parent(".timeline-el").attr("data-focus-index");
 		if(filterAct==true){
-			filterdItem = $(".timeline-el-focus");
-			var f_i = $(this).parent(".filter-card-navi").parent(".timeline-el").attr("data-focus-index");
 			var movePos = filteredCardPos[Number(f_i)+1]-(screenHeight*0.4);
-			$("html, body").animate({scrollTop: movePos}, 700, "easeOutCubic");
+		}else if(relAct ==true){
+			var movePos = relCardPos[Number(f_i)+1]-(screenHeight*0.4);
 		}
+		$("html, body").animate({scrollTop: movePos}, 700, "easeOutCubic");
 	});
 
 

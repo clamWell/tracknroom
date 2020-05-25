@@ -157,13 +157,21 @@
 				
 				<div class="story-header">
 					<div class="top-feature-back">
-						<div class="top-feature"></div>
-						<!-- <img src="img/page-feature.png" alt=""> -->
-						<div class="shade-top"></div>
-						<div class="shade-bottom"></div>
+						<div class="top-feature">
+							<div class="top-graphic top-graphic-still"><img src="img/top-graphic-still.png" alt=""></div>
+							<div class="top-graphic top-graphic-device">
+								<!--<img src="img/top-graphic-device-off.png" alt="" class="device-off">
+								<img src="img/top-graphic-device-on.png" alt="" class="device-on">-->
+								<img src="img/top-graphic-device-set.png" alt="" class="device-set">
+							</div>
+							<div class="top-graphic top-graphic-persons"><img src="img/top-graphic-person.png" alt=""></div>
+						</div>
 					</div>			
 					<div class="story-header-front">
-						<div class="page-title"><img src="img/page-title.png" alt=""></div>
+						<div class="page-title-holder">
+							<div class="page-title-semi"><img src="img/page-title-02.png" alt=""></div>
+							<div class="page-title-main"><img src="img/page-title-01.png" alt=""></div>
+						</div>
 						<div class="top-desc">n번방은 ‘성 착취’ 악의 연결 고리를 끊지 못해 발생한 예견된 참사였다. 악행은 끊이지 않았지만 가해자에 대한 처벌은 미약했고 제대로 된 인식의 전환, 제도의 개선도 이어지지 않았다. </div>
 						<div class="top-byline">
 							<div class="top-border">
@@ -203,17 +211,19 @@
 							<div class="filter-wrap">
 								<div class="filter-toggle">
 									<div class="filter-toggle-button">
-										<p class="button-border" id="FILTER_TOGGLE"><span class="filter-icon"><img src="img/filter-icon.png" alt=""></span>사건 골라보기<em></em></p>
+										<div class="button-border" id="FILTER_TOGGLE">
+											<span class="filter-icon"><img src="img/filter-icon.png" alt=""></span>태그로 사건 골라보기<em></em>
+										</div>
+										<div class="hidden-status">
+											<p class="user-select"> - <span class="value">#가해자의 도구</span><span class="exit"></span></p>
+										</div>
+										
 									</div>
 									<div class="filter-list">
 										<ul>
-											<li>#비디오</li>
-											<li>#불법촬영</li>
-											<li>#커뮤니티</li>
-											<li>#SNS</li>
-											<li>#법개정</li>
-											<li>#강력사건</li>
-											<li id="FILTER_TEST">#테스트</li>
+											<li><em class="value">#가해자의 도구</em></li>
+											<li><em class="value">#가해자 이름찾기</em></li>
+											<li><em class="value">#연대로 맞서다</em></li>
 										</ul>
 									</div>
 								</div>
@@ -246,83 +256,6 @@
 									</div>
 									
 									<div class="section-body">
-										
-										<div class="timeline-el el-card el-with-img el-right s1-e1 el-with-rel">
-											<p class="el-year"><span class="year">1953.09</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-right">
-													<img src="img/arrow-right.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s1-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">제정 형법, '정조에 관한 죄' 규정</p>
-													<p class="card-desc-point">법은 보호할 가치가 있는 정조만 보호한다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-											<div class="show-rel-card">
-												<div class="rel-icon"><img src="img/rel-icon-2.png" alt="관련사건타래보기"><span class="icon-desc">사건 타래 보기</span></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-simple-card el-no-img el-right s1-e2 el-with-rel">
-											<p class="el-year"><span class="year">1964</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-right">
-													<img src="img/arrow-right.png" alt="">
-												</div>
-												<div class="card-text">
-													<p class="card-title">성폭행 가해자 혀 깨문 여성 징역형</p>
-													<p class="card-desc-point">법원이 성폭행 디소한 남성의 혀를 문 피해자에게 징역10월에 집행유예 2년 선고하다</p>
-												</div>
-											</div>
-											<div class="show-rel-card">
-												<div class="rel-icon"><img src="img/rel-icon-2.png" alt="관련사건타래보기"><span class="icon-desc">사건 타래 보기</span></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-simple-card el-no-img el-right s1-e3 el-with-rel">
-											<p class="el-year"><span class="year">1967</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-right">
-													<img src="img/arrow-right.png" alt="">
-												</div>
-												<div class="card-text">
-													<p class="card-title">최초의 음란물 재판 '성냥갑 마야사건'</p>
-													<p class="card-desc-point">성냥갑에 인쇄된 명화 음란성 문제되자, 대법원 '명화라도 불순한 목적으로 사용하면 음란물이 될 수 있다'고 유죄 판결을 내리다.</p>
-												</div>
-											</div>
-											<div class="show-rel-card">
-												<div class="rel-icon"><img src="img/rel-icon-2.png" alt="관련사건타래보기"><span class="icon-desc">사건 타래 보기</span></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-simple-card el-no-img el-right s1-e4 el-with-rel">
-											<p class="el-year"><span class="year">1973</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-right">
-													<img src="img/arrow-right.png" alt="">
-												</div>
-												<div class="card-text">
-													<p class="card-title">“이미 버린 몸” 성폭행 가해자와 피해자 약혼</p>
-													<p class="card-desc-point">대구고법 형사부가 성폭행 가해자와 피해자의 약혼을 종용하다</p>
-												</div>
-											</div>
-											<div class="show-rel-card">
-												<div class="rel-icon"><img src="img/rel-icon-2.png" alt="관련사건타래보기"><span class="icon-desc">사건 타래 보기</span></div>
-											</div>
-										</div>
-
-
 									</div>
 								</div>
 
@@ -337,34 +270,6 @@
 									</div>
 									
 									<div class="section-body">
-
-										<div class="timeline-el el-card el-with-img el-center el-with-rel s2-e1">
-											<p class="el-year"><span class="year">1974</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s2-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">빨간 책, 비디오 암시장</p>
-													<p class="card-desc-point">과거의 '향수'로 치부할 수 없는 '그들'만의 불법거래</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											</div>
-											<div class="show-rel-card">
-												<div class="rel-icon"><img src="img/rel-icon-2.png" alt="관련사건타래보기"><span class="icon-desc">사건 타래 보기</span></div>
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
 									</div>
 								</div>
 									
@@ -379,81 +284,6 @@
 									</div>
 									
 									<div class="section-body">
-
-										<div class="timeline-el el-card el-with-img el-center s3-e1">
-											<p class="el-year"><span class="year">1988.9</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s3-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">안동주부 사건</p>
-													<p class="card-desc-point"> '적당히' 저항하지 않은 죄로 감옥에 가다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center el-with-rel s3-e2">
-											<p class="el-year"><span class="year">1991.1</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s3-e2.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">아동성폭행범 살해 사건</p>
-													<p class="card-desc-point">법적 처벌 막히자 극단적 선택, "나는 사람이 아닌 짐승을 죽였다"</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											</div>
-											<div class="show-rel-card">
-												<div class="rel-icon"><img src="img/rel-icon-2.png" alt="관련사건타래보기"><span class="icon-desc">사건 타래 보기</span></div>
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s3-e4">
-											<p class="el-year"><span class="year">1992.1</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s3-e4.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">의붓딸 성폭행범 살해 사건</p>
-													<p class="card-desc-point">가해자가 만든 가해자</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
 									</div>
 								</div>
 								
@@ -468,55 +298,6 @@
 									</div>
 									
 									<div class="section-body">
-
-										<div class="timeline-el el-card el-with-img el-center s4-e1">
-											<p class="el-year"><span class="year">1993</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s4-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">서울대 신 교수 성희롱 사건</p>
-													<p class="card-desc-point">직장 내 성희롱 사건, 처음으로 법정에 가다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-right s4-e2">
-											<p class="el-year"><span class="year">1994</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-right">
-													<img src="img/arrow-right.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s4-e2.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">성폭력특별법 제정</p>
-													<p class="card-desc-point">성폭력을 처벌하는 특별법이 처음 생기다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
 										
 									</div>
 								</div>
@@ -532,84 +313,6 @@
 									</div>
 									
 									<div class="section-body">
-
-										<div class="timeline-el el-card el-with-img el-center s5-e1">
-											<p class="el-year"><span class="year">1997</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s5-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">고교생 집단성폭행 비디오 사건</p>
-													<p class="card-desc-point">피해 여중생도 소년원에 가야했다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s5-e2">
-											<p class="el-year"><span class="year">1997</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s5-e2.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">신촌 백화점 몰래카메라</p>
-													<p class="card-desc-point">화장실 불법촬영, 처벌근거도 없었다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-no-img el-center s5-e3">
-											<p class="el-year"><span class="year">1998</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-text">
-													<p class="card-title">여성연예인 불법촬영물 사건</p>
-													<p class="card-desc-point">'X양 비디오'란 이름 아래 피해자가 지워졌다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-simple el-center s5-e4">
-											<p class="el-year"><span class="year">2000</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="card-text">
-													<p class="card-title">B양 비디오 사건</p>
-												</div>
-											</div>
-										</div>
 									</div>
 								</div>
 
@@ -625,53 +328,6 @@
 									
 									<div class="section-body">
 
-										<div class="timeline-el el-card el-with-img el-center s6-e1">
-											<p class="el-year"><span class="year">1999</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s6-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">소라넷 시작</p>
-													<p class="card-desc-point">‘디지털성범죄 가이드’가 된 불법의 온상</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s6-e2">
-											<p class="el-year"><span class="year">2004</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s6-e2.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">위디스크 운영 시작</p>
-													<p class="card-desc-point">범죄 카르텔로 이어진 국내 최대 웹하드의 시작</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
 
 									</div>
 								</div>
@@ -679,114 +335,15 @@
 								<div class="each-section sec--7">
 									<div class="sec-title sec-title--7">
 										<p class="sec-year">2000년 중반~2010년</p>
-										<h2>7. '흉악범'은 부각됐지만...</h2>
-										<div class="img-title"><img src="img/sec-title-07.png" alt="7. '흉악범'은 부각됐지만..."></div>
+										<h2>7. 끊이지 않은 미성년자 대상 성범죄 </h2>
+										<div class="img-title"><img src="img/sec-title-07.png" alt="7. 끊이지 않은 미성년자 대상 성범죄 "></div>
 										<div class="sec-title-desc">
-											<p>닷컴버블 시기와 맞물려 소라넷으로 대표되는 음란물 사이트와 P2P 업체들이 우후죽순 생겨났다. 디지털 성범죄 기업화의 시작이었다.</p>
+											<p>아동 대상 성범죄가 잇따랐다. 가해자는 미성년자와 성인을 포함했다. 잔혹한 범죄가 드러날 때마다 제도를 고쳤다. 형량이 늘고, 감경사유가 줄고, 전자발찌 부착 범위가 넓어졌다.  '진전'이라 부르기엔 이미 피해가 컸다.</p>
 										</div>
 									</div>
 									
 									<div class="section-body">
 
-										<div class="timeline-el el-card el-with-img el-center s7-e1">
-											<p class="el-year"><span class="year">2004</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s7-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">밀양 집단성폭행 사건</p>
-													<p class="card-desc-point">엄벌 피한 가해자, 모욕당한 피해자</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s7-e2">
-											<p class="el-year"><span class="year">2008</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s7-e2.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">조두순 사건</p>
-													<p class="card-desc-point">취한 상태였다고 처벌 낮춰준 법원</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s7-e3">
-											<p class="el-year"><span class="year">2010.02</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s7-e3.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">김길태 사건</p>
-													<p class="card-desc-point">성폭행 전과에도 법망 피해 또 다시 범행</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s7-e4">
-											<p class="el-year"><span class="year">2010.06</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s7-e4.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">김수철 사건</p>
-													<p class="card-desc-point">조두순, 김길태 사건 공분 가시기도 전에...</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
 									</div>
 								</div>
 
@@ -796,61 +353,14 @@
 										<h2>8. 스마트폰 확산 악용한 디지털성범죄</h2>
 										<div class="img-title"><img src="img/sec-title-08.png" alt="8. 스마트폰 확산 악용한 디지털성범죄"></div>
 										<div class="sec-title-desc">
-											<p>무선 인터넷이 가능한 스마트폰 시대가 본격화했다. 각종 채팅 앱들이 생겼다. 디지털성범죄는 새 플랫폼을 악용해 '진화'했다. 랜덤채팅은 성범죄 통로가 됐다. 랜덤채팅으로 피해자를 유인하는 수법은 '텔레그램 성착취물 사태'까지 이어진다.  </p>
+											<p>무선 인터넷이 가능한 스마트폰 시대가 본격화했다. 각종 채팅 앱들이 생겼다. 디지털성범죄는 새 플랫폼을 악용해 '진화'했다. 랜덤채팅은 성범죄 통로가 됐다. 랜덤채팅으로 피해자를 유인하는 수법은 '텔레그램 성착취물 사태'까지 이어진다.</p>
+											<p>동시에 성범죄는 빠르게 잊혀졌다. 잔혹한 범죄는 일부 '흉악범'의 이야기로 받아들여졌다. 공분이 모였다가, 제도를 조금 바꾸곤, 흩어졌다. '근본 대책'은 레토릭이 됐다. 다시 잔혹한 성범죄가 나오면 도돌이표처럼 이 과정을 반복했다. </p>
 										</div>
 									</div>
 									
 									<div class="section-body">
 
-										<div class="timeline-el el-card el-with-img el-center s8-e1">
-											<p class="el-year"><span class="year">2013</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s8-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">랜덤채팅</p>
-													<p class="card-desc-point">신원을 숨기고 아동·청소년 성착취 통로를 열다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
 
-										<div class="timeline-el el-card el-with-img el-center s8-e2">
-											<p class="el-year"><span class="year">2013.12</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s8-e2.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">AV스눕 운영 시작</p>
-													<p class="card-desc-point">'제2의 소라넷' 등장, 'N번방'이 자라고 있었다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
 									</div>
 								</div>
 
@@ -865,106 +375,7 @@
 									</div>
 									
 									<div class="section-body">
-										
-										<div class="timeline-el el-card el-with-img el-center s9-e1">
-											<p class="el-year"><span class="year">2011.05</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s9-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">의대생 집단성추행 사건</p>
-													<p class="card-desc-point">피해자를 ‘인격장애’로 모는 2차 가해까지</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s9-e2">
-											<p class="el-year"><span class="year">2011.09</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s9-e2.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">광주 인화학교 사건 재조명</p>
-													<p class="card-desc-point">잊혀지고, 또 잊혀졌다...때늦은 '도가니법'</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s9-e3">
-											<p class="el-year"><span class="year">2012.08</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s9-e3.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">고종석 사건/나주 초등생 사건</p>
-													<p class="card-desc-point">'화학적 거세', 처음으로 적용되다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s9-e4">
-											<p class="el-year"><span class="year">2014</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s9-e4.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">지적장애 아동 ‘성매매 여성’ 낙인 사건</p>
-													<p class="card-desc-point">피해아동에게 '진짜 피해자 / 자발적 성매매 여성' 잣대를 대다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
+									
 									</div>
 								</div>
 
@@ -980,76 +391,7 @@
 									
 									<div class="section-body">
 
-										<div class="timeline-el el-card el-with-img el-center s10-e1">
-											<p class="el-year"><span class="year">2015.01</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s10-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">소라넷고발프로젝트, #소라넷하니 운동</p>
-													<p class="card-desc-point">'N번방 아웃'까지 이어질 긴 여정의 시작</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s10-e2">
-											<p class="el-year"><span class="year">2015.03</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s10-e2.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">관악구 여중생 살인사건</p>
-													<p class="card-desc-point">미성년자 성착취 살해의 도구가 된 랜덤채팅</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-simple-card el-center s10-e4">
-											<p class="el-year"><span class="year">2015</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="card-text">
-													<p class="card-title">다크웹 '웰컴투비디오' 운영시작</p>
-													<p class="card-desc-point">세계 최대규모 아동성착취 영상 사이트가 시작되다</p>
-												</div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-simple-card el-center s10-e5">
-											<p class="el-year"><span class="year">2015.11</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="card-text">
-													<p class="card-title">정준영 불법촬영물 유포 시작</p>
-													<p class="card-desc-point">단체대화방에 동의없이 촬영한 성착취물을 올리기 시작하다</p>
-												</div>
-											</div>
-										</div>
-
+									
 									</div>
 								</div>
 
@@ -1065,81 +407,6 @@
 									
 									<div class="section-body">
 
-										<div class="timeline-el el-card el-with-img el-center s11-e1">
-											<p class="el-year"><span class="year">2016</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s11-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">소라넷 폐쇄</p>
-													<p class="card-desc-point"></p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s11-e2">
-											<p class="el-year"><span class="year">2016.05</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s11-e2.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">강남역 살인사건</p>
-													<p class="card-desc-point">“나는 우연히 살아남았다”, 여성들의 분노 ‘여혐 살인’으로 모이다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s11-e3">
-											<p class="el-year"><span class="year">2016</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s11-e3.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">대학가 단톡방 성희롱 사건</p>
-													<p class="card-desc-point"></p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
 									</div>
 								</div>
 
@@ -1150,62 +417,13 @@
 										<h2>12. 폐쇄해도 계속되는 반동</h2>
 										<div class="img-title"><img src="img/sec-title-12.png" alt="12. 폐쇄해도 계속되는 반동"></div>
 										<div class="sec-title-desc">
-											<p>닷컴버블 시기와 맞물려 소라넷으로 대표되는 음란물 사이트와 P2P 업체들이 우후죽순 생겨났다. 디지털 성범죄 기업화의 시작이었다.</p>
+											<p>‘소라넷’ 폐쇄는 끝이 아니었다. 처벌을 피한 이용자들은 디지털성범죄가 용이한 곳을 떠돌았다. 수천 건의 피해촬영물이 죄책감 없이 ‘국산야동’으로 소비되는 지경에 이르렀다. 끝없는 피해를 막아 선 건 늘 그렇듯 법이 아니었다.</p>
 										</div>
 									</div>
 									
 									<div class="section-body">
 
-										<div class="timeline-el el-card el-with-img el-center s12-e1">
-											<p class="el-year"><span class="year">2017.04</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s12-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">AV스눕 폐쇄</p>
-													<p class="card-desc-point">제대로 처벌받지 않은 ‘제2의 소라넷’, ‘N번방 전신’이 되다 </p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s12-e2">
-											<p class="el-year"><span class="year">2017.5~</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s12-e2.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">웹하드 카르텔과의 전쟁</p>
-													<p class="card-desc-point">‘국산야동’이란 이름의 사라지지 않는 피해촬영물</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
+									
 
 									</div>
 								</div>
@@ -1216,222 +434,13 @@
 										<h2>13. N개의 미투가 방증하는  것</h2>
 										<div class="img-title"><img src="img/sec-title-13.png" alt="13. N개의 미투가 방증하는  것</"></div>
 										<div class="sec-title-desc">
-											<p>닷컴버블 시기와 맞물려 소라넷으로 대표되는 음란물 사이트와 P2P 업체들이 우후죽순 생겨났다. 디지털 성범죄 기업화의 시작이었다.</p>
+											<p>참다 못한 외침들이 터져 나왔다. 분야를 가리지 않고 수많은 '미투' 운동이 이어졌다. 그만큼 한국 사회에 강간문화와 남성연대가 만연하단 걸 드러냈다. 사회는 여전히 ‘피해자다움’을 요구하고 2차 가해를 일삼았다. ‘미투’의 외침은 현재진행형이다.</p>
 										</div>
 									</div>
 									
 									<div class="section-body">
 
-										<div class="timeline-el el-card el-with-img el-center s13-e1">
-											<p class="el-year"><span class="year">2018.01</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s13-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">서지현 검사 미투 </p>
-													<p class="card-desc-point">‘#미투’ 거대한 물결의 분기점이 되다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-										
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s13-e2">
-											<p class="el-year"><span class="year">2018.02</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s13-e2.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">최영미 시인, 고은 고발 인터뷰</p>
-													<p class="card-desc-point">온 힘으로 굴린 작은 바퀴, 문단 권력의 ‘대시인’을 멈추다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s13-e3">
-											<p class="el-year"><span class="year">2018.02</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s13-e3.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">연극계 미투</p>
-													<p class="card-desc-point">뿌리깊은 연극계 위계폭력, ‘제왕적 연출가’의 상습 성범죄를 낳다</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s13-e4">
-											<p class="el-year"><span class="year">2018.?</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s13-e4.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">대학가 미투</p>
-													<p class="card-desc-point"> “수많은 ‘알파벳’ 교수를 고발합니다”</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-simple el-center s13-e8">
-											<p class="el-year"><span class="year">2018.02</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="card-text">
-													<p class="card-title">청주대 학생들, 배우 조민기 성추행 폭로</p>
-												</div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-simple el-center s13-e9">
-											<p class="el-year"><span class="year">2018.02</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="card-text">
-													<p class="card-title">배우 최율, 배우 조재현 성추행 폭로</p>
-												</div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s13-e5">
-											<p class="el-year"><span class="year">2018.03</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s13-e5.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">김지은씨 미투</p>
-													<p class="card-desc-point">“‘피해자다움’은 없다. 법은 성인지 감수성을 잃지 않아야” </p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s13-e6">
-											<p class="el-year"><span class="year">2018.04</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s13-e6.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">용화여고 스쿨미투</p>
-													<p class="card-desc-point">학교 창문에 붙은 ‘#ME TOO’, 스쿨미투의 시작</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s13-e7">
-											<p class="el-year"><span class="year">2018.05</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s13-e7.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">양예원 스튜디오 성폭력 사건*</p>
-													<p class="card-desc-point">학교 창문에 붙은 ‘#ME TOO’, 스쿨미투의 시작</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-simple el-center s13-e10">
-											<p class="el-year"><span class="year">2019.01</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="card-text">
-													<p class="card-title">심석희, 조재범 전 코치 성폭력 폭로</p>
-												</div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-simple el-center s13-e11">
-											<p class="el-year"><span class="year">2019.01</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="card-text">
-													<p class="card-title">신유용, 고교 유도부 코치 성폭력 폭로</p>
-												</div>
-											</div>
-										</div>
-
+									
 									</div>
 								</div>
 
@@ -1441,106 +450,12 @@
 										<h2>14. 뒤안길에서 자라던 것과 스러진 이들</h2>
 										<div class="img-title"><img src="img/sec-title-14.png" alt="14. 뒤안길에서 자라던 것과 스러진 이들"></div>
 										<div class="sec-title-desc">
-											<p>닷컴버블 시기와 맞물려 소라넷으로 대표되는 음란물 사이트와 P2P 업체들이 우후죽순 생겨났다. 디지털 성범죄 기업화의 시작이었다.</p>
+											<p>‘여자답게’를 요구하는 세상에 맞서던 여성 연예인들이 결국 스러졌다. 같은 세상에서 남성 연예인들은 ‘일상’처럼 단톡방에서 성착취물을 돌려봤다. 텔레그램 등 보이지 않는 곳에선 조직적인 성착취가 자라기 시작했다.</p>
 										</div>
 									</div>
 									
 									<div class="section-body">
 
-										<div class="timeline-el el-card el-with-img el-center s14-e1">
-											<p class="el-year"><span class="year">2019.02~</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s14-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">텔레그램 성착취 사건</p>
-													<p class="card-desc-point">제대로 처벌받지 않은 ‘제2의 소라넷’, ‘N번방 전신’이 되다 </p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s14-e2">
-											<p class="el-year"><span class="year">2019.03</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s14-e2.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">정준영 단톡방 성착취물 공유 사건</p>
-													<p class="card-desc-point">‘국산야동’이란 이름의 사라지지 않는 피해촬영물</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-										<div class="timeline-el el-card el-with-img el-center s14-e3">
-											<p class="el-year"><span class="year">2019.10</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s14-e3.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">다크웹 ‘웰컴 투 비디오’ 사건 </p>
-													<p class="card-desc-point">세계 최대규모 아동성착취물 사이트 운영자, 뒤늦게 알려진 솜방망이 처벌</p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
-
-
-										<div class="timeline-el el-simple el-center s14-e4">
-											<p class="el-year"><span class="year">2019.10</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="card-text">
-													<p class="card-title">설리 사망</p>
-												</div>
-											</div>
-										</div>
-
-
-										<div class="timeline-el el-simple el-center s14-e5">
-											<p class="el-year"><span class="year">2019.11</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="card-text">
-													<p class="card-title">구하라 사망</p>
-												</div>
-											</div>
-										</div>
 									</div>
 								</div>
 
@@ -1556,30 +471,7 @@
 									
 									<div class="section-body">
 
-										<div class="timeline-el el-card el-with-img el-center s15-e1">
-											<p class="el-year"><span class="year">2020.03</span><span class="spot"></span></p>
-											<div class="card-body">
-												<div class="arrow arrow-up">
-													<img src="img/arrow-up.png" alt="">
-												</div>
-												<div class="card-thumb">
-													<img src="img/s15-e1.jpg" alt="">
-													<div class="thumb-shade"></div>
-												</div>
-												<div class="card-text">
-													<p class="card-title">N번방 사태</p>
-													<p class="card-desc-point">제대로 처벌받지 않은 ‘제2의 소라넷’, ‘N번방 전신’이 되다 </p>
-												</div>
-												<div class="view-card">
-													<p>사건 설명 더보기 +</p>
-												</div>
-											
-											</div>
-											<div class="card-share">
-												<div class="share_fb"><a onclick="sendSns('facebook'); return false;"><img src="img/fb_icon_line_w.png" alt="페이스북" /></a></div>
-												<div class="share_tw"><a onclick="sendSns('twitter'); return false;"><img src="img/tw_icon_line_w.png" alt="트위터" /></a></div>
-											</div>
-										</div>
+								
 
 
 									</div>
@@ -1655,6 +547,16 @@
 					</div>
 				</div>
 				
+				<div class="fixed-focus-item-list">
+					<p class="focus-title"><span class="code">친고죄</span> 관련 사건 목록</p>
+					<div class="item-list-wrap">
+						<ul>
+							<li>성범죄를 직접 6개월 안에 신고해야 했다</li>
+							<li>아동 성범죄가 비친고죄로 개정</li>
+							<li>모든 성범죄의 친고죄 폐지</li>
+						</ul>
+					</div>
+				</div>
 
 				<!-- 하단 공통영역 (S) -->
 				<div class="footer-area">
