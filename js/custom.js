@@ -101,11 +101,13 @@ $(function(){
 			if(data[d]["relCode"] !== null ){
 				$this_card.append("<div class='show-rel-card'><div class='rel-icon'><img src='img/rel-icon-2.png' alt='관련사건타래보기'><span class='icon-desc'>사건 타래 보기</span></div></div>");
 				$this_card.find(".show-rel-card").attr("data-rel-id", data[d]["relCode"]);
+				$this_card.addClass("el-with-rel");
 			}
 			
 			if(d==data.length-1){
 				setSectionHeight();
 				addCardNavi();
+				addCardSvg();
 			}
 		}
 
@@ -134,6 +136,112 @@ $(function(){
 			$(item).append("<div class='filter-card-navi'><div class='arr-up'><img src='img/arr-up-or.png' alt='필터링사건안에서이동'></div><div class='arr-down'><img src='img/arr-down-or.png' alt='필터링사건안에서이동'></div><div class='filter-exit'><img src='img/exit-icon-or.png' alt='필터링끄기'></div><div class='arr-info'><span class='f_i'></span><span class='slash'>/</span><span class='total'></span></div></div>");
 		});
 	};
+
+	function addCardSvg(){
+		$(".timeline-el").each(function(index,item){
+			if($(item).hasClass("el-with-rel")){
+				$(item).append("<svg id='svg-"+$(item).attr("data-id")+"'></svg>");
+			}
+		});
+
+		//$("#svg-s1-e1").append("<path class='line-noraml line-s1-e1'/>");
+		//$("#svg-s1-e2").append("<path class='line-noraml line-s1-e2'/>");
+
+		var svgS1e1 = document.getElementById("svg-s1-e1");
+		var pathS1e1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES1e1 = svgS1e1.appendChild(pathS1e1);
+		pES1e1.setAttributeNS(null,"d","M0,0 Q200,600 0,4000");
+		pES1e1.setAttributeNS(null,"class","line-noraml");
+
+		var svgS1e2 = document.getElementById("svg-s1-e2");
+		var pathS1e2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES1e2 = svgS1e2.appendChild(pathS1e2);
+		pES1e2.setAttributeNS(null,"d","M0,0 Q400,12000 0,22600");
+		pES1e2.setAttributeNS(null,"class","line-noraml");
+
+		var svgS3e2 = document.getElementById("svg-s3-e2");
+		var pathS3e2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES3e2 = svgS3e2.appendChild(pathS3e2);
+		pES3e2.setAttributeNS(null,"d","M0,0 Q-100,250 0,400");
+		pES3e2.setAttributeNS(null,"class","line-noraml");
+
+		var svgS3e4 = document.getElementById("svg-s3-e4");
+		var pathS3e4 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES3e4 = svgS3e4.appendChild(pathS3e4);
+		pES3e4.setAttributeNS(null,"d","M0,0 Q500,500 350,1000");
+		pES3e4.setAttributeNS(null,"class","line-noraml");
+
+		var svgS3e3 = document.getElementById("svg-s3-e3");
+		var pathS3e3 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES3e3 = svgS3e3.appendChild(pathS3e3);
+		pES3e3.setAttributeNS(null,"d","M0,0 Q-100,700 100,1600");
+		pES3e3.setAttributeNS(null,"class","line-noraml");
+
+		var svgS4e1 = document.getElementById("svg-s4-e1");
+		var pathS4e1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES4e1 = svgS4e1.appendChild(pathS4e1);
+		pES4e1.setAttributeNS(null,"d","M0,0 Q-100,1500 300,2500");
+		pES4e1.setAttributeNS(null,"class","line-noraml");
+
+
+		var svgS4e4 = document.getElementById("svg-s4-e4");
+		var pathS4e4 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES4e4 = svgS4e4.appendChild(pathS4e4);
+		pES4e4.setAttributeNS(null,"d","M120,0 Q600,4000 50,6650");
+		pES4e4.setAttributeNS(null,"class","line-noraml");
+
+		var svgS5e2 = document.getElementById("svg-s5-e2");
+		var pathS5e2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES5e2 = svgS5e2.appendChild(pathS5e2);
+		pES5e2.setAttributeNS(null,"d","M0,0 Q600,250 350,700");
+		pES5e2.setAttributeNS(null,"class","line-noraml");
+
+		var svgS6e2 = document.getElementById("svg-s6-e2");
+		var pathS6e2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES6e2 = svgS6e2.appendChild(pathS6e2);
+		pES6e2.setAttributeNS(null,"d","M0,0 Q-400,2500 100,5400");
+		pES6e2.setAttributeNS(null,"class","line-noraml");
+
+		var svgS6e4 = document.getElementById("svg-s6-e4");
+		var pathS6e4 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES6e4 = svgS6e4.appendChild(pathS6e4);
+		pES6e4.setAttributeNS(null,"d","M0,0 Q-400,6500 200,8200");
+		pES6e4.setAttributeNS(null,"class","line-noraml");
+
+		var svgS7e2 = document.getElementById("svg-s7-e2");
+		var pathS7e2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES7e2 = svgS7e2.appendChild(pathS7e2);
+		pES7e2.setAttributeNS(null,"d","M0,0 Q-300,1700 350,2800");
+		pES7e2.setAttributeNS(null,"class","line-noraml");
+
+		var svgS10e1 = document.getElementById("svg-s10-e1");
+		var pathS10e1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES10e1 = svgS10e1.appendChild(pathS10e1);
+		pES10e1.setAttributeNS(null,"d","M100,0 Q500,600 300,1450");
+		pES10e1.setAttributeNS(null,"class","line-noraml");
+
+		var svgS12e2 = document.getElementById("svg-s12-e2");
+		var pathS12e2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES12e2 = svgS12e2.appendChild(pathS12e2);
+		pES12e2.setAttributeNS(null,"d","M0,0 Q600,1200 400,2050");
+		pES12e2.setAttributeNS(null,"class","line-noraml");
+
+		var svgS13e6 = document.getElementById("svg-s13-e6");
+		var pathS13e6 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES13e6 = svgS13e6.appendChild(pathS13e6);
+		pES13e6.setAttributeNS(null,"d","M50,0 Q-300,600 250,1220");
+		pES13e6.setAttributeNS(null,"class","line-noraml");
+
+		var svgS13e13 = document.getElementById("svg-s13-e13");
+		var pathS13e13 = document.createElementNS("http://www.w3.org/2000/svg", "path");
+		var pES13e13 = svgS13e13.appendChild(pathS13e13);
+		pES13e13.setAttributeNS(null,"d","M100,0 Q500,1000 50,1950");
+		pES13e13.setAttributeNS(null,"class","line-noraml");
+
+
+	};
+
+// svg-s7-e2 200 2800
 
 	function getTimelineHeight(){
 		timelineEndPos = $(".timeline-holder").offset().top + $(".timeline-holder").height();
@@ -372,7 +480,7 @@ $(function(){
 		$("#YEAR_COUNTING").addClass("removeBlur");
 		$(".timeline-holder").delay(500).animate({"opacity":"1"}, 1500);
 	};
-
+	
 
 	$(window).scroll(function(){
 		var nowScroll = $(window).scrollTop();
@@ -382,7 +490,7 @@ $(function(){
 	
 		if(nowScroll >timeWarpPoint&&timeWarpDone==false){
 			timeWarpDone=true;
-			animateTimeWarp();
+			//animateTimeWarp();
 		}
 
 		if(nowScroll>=timelineStartPos &&nowScroll< timelineEndPos){
