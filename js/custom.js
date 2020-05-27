@@ -144,9 +144,6 @@ $(function(){
 			}
 		});
 
-		//$("#svg-s1-e1").append("<path class='line-noraml line-s1-e1'/>");
-		//$("#svg-s1-e2").append("<path class='line-noraml line-s1-e2'/>");
-
 		var svgS1e1 = document.getElementById("svg-s1-e1");
 		var pathS1e1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
 		var pES1e1 = svgS1e1.appendChild(pathS1e1);
@@ -214,30 +211,68 @@ $(function(){
 		pES7e2.setAttributeNS(null,"d","M0,0 Q-300,1700 350,2800");
 		pES7e2.setAttributeNS(null,"class","line-noraml");
 
-		var svgS10e1 = document.getElementById("svg-s10-e1");
-		var pathS10e1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
-		var pES10e1 = svgS10e1.appendChild(pathS10e1);
-		pES10e1.setAttributeNS(null,"d","M100,0 Q500,600 300,1450");
-		pES10e1.setAttributeNS(null,"class","line-noraml");
+		var pathS8e5 = document.getElementById("svg-s8-e5").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS8e5.setAttributeNS(null,"d","M50,0 Q-300,3000 400,4500");
 
-		var svgS12e2 = document.getElementById("svg-s12-e2");
-		var pathS12e2 = document.createElementNS("http://www.w3.org/2000/svg", "path");
-		var pES12e2 = svgS12e2.appendChild(pathS12e2);
-		pES12e2.setAttributeNS(null,"d","M0,0 Q600,1200 400,2050");
-		pES12e2.setAttributeNS(null,"class","line-noraml");
+		var pathS8e7 = document.getElementById("svg-s8-e7").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS8e7.setAttributeNS(null,"d","M100,0 Q1000,3000 50,9000");
 
-		var svgS13e6 = document.getElementById("svg-s13-e6");
-		var pathS13e6 = document.createElementNS("http://www.w3.org/2000/svg", "path");
-		var pES13e6 = svgS13e6.appendChild(pathS13e6);
-		pES13e6.setAttributeNS(null,"d","M50,0 Q-300,600 250,1220");
-		pES13e6.setAttributeNS(null,"class","line-noraml");
+		var pathS8e9 = document.getElementById("svg-s8-e9").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS8e9.setAttributeNS(null,"d","M50,0 Q-100,2000 600,3000");
 
-		var svgS13e13 = document.getElementById("svg-s13-e13");
-		var pathS13e13 = document.createElementNS("http://www.w3.org/2000/svg", "path");
-		var pES13e13 = svgS13e13.appendChild(pathS13e13);
-		pES13e13.setAttributeNS(null,"d","M100,0 Q500,1000 50,1950");
-		pES13e13.setAttributeNS(null,"class","line-noraml");
+		var pathS10e1 = document.getElementById("svg-s10-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS10e1.setAttributeNS(null,"d","M100,0 Q500,600 300,1450");
 
+		var pathS10e3 = document.getElementById("svg-s10-e3").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS10e3.setAttributeNS(null,"d","M250,0 Q-200,2500 600,5700");
+
+		var pathS10e4 = document.getElementById("svg-s10-e4").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS10e4.setAttributeNS(null,"d","M50,0 Q-500,3000 300,7000");
+
+		var pathS11e5 = document.getElementById("svg-s11-e5").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS11e5.setAttributeNS(null,"d","M300,0 Q320,50 350,120");
+
+		var pathS11e6 = document.getElementById("svg-s11-e6").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS11e6.setAttributeNS(null,"d","M50,0 Q500,2000 0,8700");
+
+		var pathS12e2 = document.getElementById("svg-s12-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS12e2.setAttributeNS(null,"d","M0,0 Q600,1200 400,2050");
+
+		var pathS13e1 = document.getElementById("svg-s13-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS13e1.setAttributeNS(null,"d","M250,0 Q-100,2000 500,4100");
+
+		var pathS13e2 = document.getElementById("svg-s13-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS13e2.setAttributeNS(null,"d","M50,0 Q-200,3000 400,4900");
+		
+		var pathS13e3 = document.getElementById("svg-s13-e3").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS13e3.setAttributeNS(null,"d","M50,0 Q-200,3000 700,3500");
+
+		var pathS13e12 = document.getElementById("svg-s13-e12").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS13e12.setAttributeNS(null,"d","M150,0 Q400,1200 0,2400");
+
+		var pathS13e6 = document.getElementById("svg-s13-e6").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS13e6.setAttributeNS(null,"d","M50,0 Q-300,600 250,1220");
+
+		var pathS13e7 = document.getElementById("svg-s13-e7").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS13e7.setAttributeNS(null,"d","M50,0 Q-100,2500 420,3300");
+
+		var pathS13e13 = document.getElementById("svg-s13-e13").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS13e13.setAttributeNS(null,"d","M100,0 Q600,1000 50,1950");
+
+		var pathS14e1 = document.getElementById("svg-s14-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS14e1.setAttributeNS(null,"d","M100,0 Q-100,1500 400,2850");		
+
+		var pathS14e2 = document.getElementById("svg-s14-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS14e2.setAttributeNS(null,"d","M100,0 Q300,900 500,1780");
+
+		var pathS14e8 = document.getElementById("svg-s14-e8").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS14e8.setAttributeNS(null,"d","M300,0 Q-100,900 600,1720");
+
+		var pathS14e11 = document.getElementById("svg-s14-e11").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS14e11.setAttributeNS(null,"d","M220,0 Q400,1200 300,1350");
+
+		var pathS15e1 = document.getElementById("svg-s15-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS15e1.setAttributeNS(null,"d","M200,0 Q350,300 300,400");		
 
 	};
 

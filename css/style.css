@@ -333,6 +333,7 @@ background:url("../img/thumb-shade.png") repeat-y;  background-position: right; 
 .timeline-el > svg { position: absolute; top:0; overflow: visible; width:10px; }
 .el-right svg {top: 50px;right: -10px; }
 svg .line-noraml { fill:none; stroke-width:1.2px; stroke:#ff6716; stroke-opacity: 0.5; }
+.timeline-el > svg  path { fill:none; stroke-width:1.2px; stroke:#ff6716; stroke-opacity: 1; }
 
 #svg-s1-e1 { top: 50px;right: -10px; }
 #svg-s3-e2 { top: 50px;left:20px; }
@@ -342,19 +343,19 @@ svg .line-noraml { fill:none; stroke-width:1.2px; stroke:#ff6716; stroke-opacity
 #svg-s6-e2 { top: 50px;left:20px; }
 #svg-s6-e4 { top: 50px;left:20px; }
 #svg-s7-e2 { top: 50px;left:20px; }
-#svg-s8-e5 {}
-#svg-s8-e7 {}
+#svg-s8-e5 { top: 50px;left:20px;}
+#svg-s8-e7 { top: 50px;left:20px; }
 #svg-s8-e9 {}
-#svg-s11-e5 {}
-#svg-s11-e6 {}
+#svg-s11-e5 {top: 50px; right:auto; left:20px;}
+#svg-s11-e6 {top: 0px; right:auto; left:20px;}
 #svg-s15-e6 {}
 #svg-s10-e3 {}
-#svg-s13-e12 {}
+#svg-s13-e12 {top: 0px; right:auto; left:0px;}
 #svg-s14-e8 {}
 #svg-s15-e2 {}
 #svg-s10-e4 {}
 #svg-s14-e2 {} 
-#svg-s14-e11 {}
+#svg-s14-e11 {  right: auto;left: 0; top: 0;}
 #svg-s12-e2 {}
 #svg-s13-e6 {top: 30px;right: auto;left: 0;}
 #svg-s13-e13 { right: auto; left: 0;top: 0;}
@@ -363,7 +364,14 @@ svg .line-noraml { fill:none; stroke-width:1.2px; stroke:#ff6716; stroke-opacity
 #svg-s15-e3 {}
 
 
-.timeline-el-focus svg .line-noraml { stroke-opacity:1; }
+.timeline-el-focus svg path { stroke-opacity:2; stroke: #ff9c34; }
+
+
+/**** 엔딩관련 *****/
+
+.front-ele-area .sec--15 { padding-bottom: 1000px; }
+.line-body-end { position:absolute; bottom: 0; width: 2px;height: 1800px; background: #ff4800;}
+
 
 
 /**** 사건개별 위치조정 ***/
@@ -478,8 +486,6 @@ svg .line-noraml { fill:none; stroke-width:1.2px; stroke:#ff6716; stroke-opacity
 .s15-e4 { top: 530px;}
 .s15-e5 { top: 650px;}
 .s15-e6 { top: 800px;}
-
-
 
 
 /**** 사건개별 위치조정 ***/
