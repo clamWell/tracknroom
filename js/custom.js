@@ -34,6 +34,8 @@ $(function(){
 				if (current == end) {
 					clearInterval(timer);
 					$("body").removeClass("fixed");
+					$(".time-warp").addClass("time-warp-after");
+					$(".timeline-area").animate({"opacity":"1"}, 1500);
 				}
 			}, stepTime);
 	}
@@ -121,10 +123,10 @@ $(function(){
 			if( sec_item.length !==0){
 				var temH = 0;
 				var item_margin = 20;
-				console.log(sec_item.length);
+				//console.log(sec_item.length);
 				var last_item_pos = Number(sec_item.eq(sec_item.length-1).css("top").replace("px",""));
 				temH = last_item_pos + sec_item.eq(sec_item.length-1).height() + item_margin;
-				console.log(temH);
+				//console.log(temH);
 				$(item).find(".section-body").css({"height":temH+"px"});
 			}
 		})	
@@ -218,7 +220,7 @@ $(function(){
 		pathS8e7.setAttributeNS(null,"d","M100,0 Q1000,3000 50,9000");
 
 		var pathS8e9 = document.getElementById("svg-s8-e9").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		pathS8e9.setAttributeNS(null,"d","M50,0 Q-100,2000 600,3000");
+		pathS8e9.setAttributeNS(null,"d","M50,0 Q-100,2000 600,3100");
 
 		var pathS10e1 = document.getElementById("svg-s10-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
 		pathS10e1.setAttributeNS(null,"d","M100,0 Q500,600 300,1450");
@@ -230,19 +232,19 @@ $(function(){
 		pathS10e4.setAttributeNS(null,"d","M50,0 Q-500,3000 300,7000");
 
 		var pathS11e5 = document.getElementById("svg-s11-e5").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		pathS11e5.setAttributeNS(null,"d","M300,0 Q320,50 350,120");
+		pathS11e5.setAttributeNS(null,"d","M300,0 Q320,50 350,90");
 
 		var pathS11e6 = document.getElementById("svg-s11-e6").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
 		pathS11e6.setAttributeNS(null,"d","M50,0 Q500,2000 0,8700");
 
 		var pathS12e2 = document.getElementById("svg-s12-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		pathS12e2.setAttributeNS(null,"d","M0,0 Q600,1200 400,2050");
+		pathS12e2.setAttributeNS(null,"d","M0,0 Q600,1200 400,2020");
 
 		var pathS13e1 = document.getElementById("svg-s13-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		pathS13e1.setAttributeNS(null,"d","M250,0 Q-100,2000 500,4100");
+		pathS13e1.setAttributeNS(null,"d","M250,0 Q-100,2000 500,4150");
 
 		var pathS13e2 = document.getElementById("svg-s13-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		pathS13e2.setAttributeNS(null,"d","M50,0 Q-200,3000 400,4900");
+		pathS13e2.setAttributeNS(null,"d","M50,0 Q-200,3000 400,4950");
 		
 		var pathS13e3 = document.getElementById("svg-s13-e3").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
 		pathS13e3.setAttributeNS(null,"d","M50,0 Q-200,3000 700,3500");
@@ -368,62 +370,69 @@ $(function(){
 	
 
 
-	var endTrafficSvg = d3.select("#END_TRAFFIC");
-
-	var defs = endTrafficSvg.append("defs");
-	var filter = defs.append("filter")
-		.attr("id","glow");
-
-	filter.append("feGaussianBlur")
-		.attr("class", "blur")
-		.attr("stdDeviation","4.5")
-		.attr("result","coloredBlur");
-
-	var feMerge = filter.append("feMerge");
-	feMerge.append("feMergeNode")
-		.attr("in","coloredBlur");
-	feMerge.append("feMergeNode")
-		.attr("in","SourceGraphic");
-
-
-	var bubbleG_1 = endTrafficSvg.append("g")
-								.attr("class","bubble-g bubble-g--1");
-	var bubbleG_2= endTrafficSvg.append("g")
-								.attr("class","bubble-g bubble-g--2")
-	var bubbleG_3 = endTrafficSvg.append("g")
-								.attr("class","bubble-g bubble-g--3")
-	var bubbleG_4 = endTrafficSvg.append("g")
-								.attr("class","bubble-g bubble-g--4")
-
-	var bubbleG_random = endTrafficSvg.append("g")
-								.attr("class","bubble-g bubble-g--random")
-
 	
 	function addtrafficPlots(){
+
+		var endTrafficSvg = d3.select("#END_TRAFFIC");
+
+		var defs = endTrafficSvg.append("defs");
+		var filter = defs.append("filter")
+			.attr("id","glow");
+
+		filter.append("feGaussianBlur")
+			.attr("class", "blur")
+			.attr("stdDeviation","4.5")
+			.attr("result","coloredBlur");
+
+		var feMerge = filter.append("feMerge");
+		feMerge.append("feMergeNode")
+			.attr("in","coloredBlur");
+		feMerge.append("feMergeNode")
+			.attr("in","SourceGraphic");
+
+
+		var bubbleG_1 = endTrafficSvg.append("g")
+									.attr("class","bubble-g bubble-g--1");
+		var bubbleG_2= endTrafficSvg.append("g")
+									.attr("class","bubble-g bubble-g--2")
+		var bubbleG_3 = endTrafficSvg.append("g")
+									.attr("class","bubble-g bubble-g--3")
+		var bubbleG_4 = endTrafficSvg.append("g")
+									.attr("class","bubble-g bubble-g--4")
+
+		var bubbleG_random = endTrafficSvg.append("g")
+									.attr("class","bubble-g bubble-g--random");
+
 		var t_width = $(".bubble-traffic-holder").width();
 		var t_height = $(".bubble-traffic-holder").height();
-		var trafficNumb = 300;
-		var ranArr = [1,5,45,70,150,165,185,320,380,490];
+		var trafficNumb = 400;
+		var ranArr = [45,165,320,490];
 
 		for(g=0; g < 4;g++){
 			for(i=0; i<trafficNumb; i++){
-				var angle = i/50;
+				var angle = i/30;
 				var circle = d3.select(".bubble-g--"+Number(g+1)).append("circle")
 					.attr("class", function(){
 						if( ranArr.indexOf(i) == -1){
 							return "traffic-plots";
 						}else{
-							return "traffic-plots traffic-plots-blink-"+g;
+							return "traffic-plots";
+							//return "traffic-plots traffic-plots--"+i;
 						}
-					})
-					.attr("cx", function(){
-						return Math.cos(angle)*500 + randomRange(-200,200) + t_width/2;
+					}).attr("data-cx", function(){
+						return Math.cos(angle)*500 + randomRange(-300,300) + t_width/2;
+					}).attr("data-cy", function(){
+						return Math.sin(angle)*150+ randomRange(-80,80) + t_height/2;
+					}).attr("cx", function(){
+						//return Math.cos(angle)*500 + randomRange(-200,200) + t_width/2;
+						return randomRange(-t_width,t_width);
 					}).attr("cy", function(){
-						return Math.sin(angle)*150+ randomRange(-50,50) + t_height/2;
+						//return Math.sin(angle)*150+ randomRange(-50,50) + t_height/2;
+						return -(randomRange(0, screenHeight * 3));
 					}).attr("r", function(){
 						return randomRange(2, 3);
 					}).style("fill-opacity",function(){
-						var r = randomRange(70,100);
+						var r = randomRange(0,20);
 						return r/100;
 					}).style("fill", function(){
 						var t= randomRange(1,3);
@@ -436,17 +445,22 @@ $(function(){
 						}else{
 							return "#ff8352";
 						}
-					}).style("filter","url(#glow)");
+					});
 			}
 
 		}
-		for(i=0; i<500; i++){
+		for(i=0; i<300; i++){
 			var circle = d3.select(".bubble-g--random").append("circle")
 				.attr("class", "traffic-plots")
-				.attr("cx", function(){
-					return randomRange(-t_width, t_width);
-				}).attr("cy", function(){
+				.attr("data-cx", function(){
+					return randomRange(-t_width*1.5, t_width*1.5);
+				}).attr("data-cy", function(){
 					return randomRange(-t_height*0.2, t_height*1.2);
+				})
+				.attr("cx", function(){
+					return randomRange(-t_width,t_width);
+				}).attr("cy", function(){
+					return -(randomRange(0, screenHeight * 2.5));
 				}).attr("r", function(){
 					return randomRange(1, 3);
 				}).style("fill-opacity",function(){
@@ -465,22 +479,56 @@ $(function(){
 					}
 				}).style("filter","url(#glow)");
 		}
+	
+		var plots = d3.selectAll(".traffic-plots");
+			plots.on("mouseover", function() {
+							d3.select(this)
+								.style("fill-opacity", "1")
+								.style("stroke", "#fff")
+								.style("stroke-width", "1px");
+						}).on("mouseout", function() {
+							d3.select(this)
+								.style("fill-opacity", null)
+								.style("stroke", null)
+								.style("stroke-width", null);
 
+						});
+
+		
 	}
+
 	addtrafficPlots();
 
-	var plots = d3.selectAll(".traffic-plots");
-	 plots.on("mouseover", function() {
-					d3.select(this)
-						.style("fill-opacity", "1")
-						.style("stroke", "#fff")
-						.style("stroke-width", "1px");
-				}).on("mouseout", function() {
-					d3.select(this)
-						.style("fill-opacity", null)
-						.style("stroke", null)
-						.style("stroke-width", null)
-				});
+	function positioningPlots(){
+		var plots = d3.selectAll(".traffic-plots");
+		plots.transition()
+				.duration(function() {
+					return randomRange(2000, 7000);
+				})
+				.ease(d3.easeQuadInOut)
+				.attr("cx", function(){
+					return d3.select(this).attr("data-cx");
+				}).attr("cy", function(){
+					return d3.select(this).attr("data-cy");
+				}).style("fill-opacity",function(){
+					var r = randomRange(70,100);
+					return r/100;
+				}).on("end");
+
+		setTimeout(function() {
+			afterPosition();
+			$("body").removeClass("fixed");
+		}, 3000);
+	};
+
+	function afterPosition(){
+		$(".bubble-traffic-holder .img-back").fadeIn(1000, function(){
+			for(f=0; f< $(".bubble-traffic-holder .img-front .traffic-front").length;f++){
+				$(".bubble-traffic-holder .img-front .traffic-front").eq(f).delay(300*f).fadeIn(1000);
+				$(".traffic-nroom").eq(f).delay(300*f).fadeIn(1000);
+			}
+		});
+	};
 
 	/******* bubble traffic  ******/
 
@@ -493,7 +541,7 @@ $(function(){
 				break;
 			}
 		}
-		console.log(selectItemData);
+		//console.log(selectItemData);
 		$(".popUp-front").find(".year").html(selectItemData["ymd"]);
 		$(".popUp-front").find(".thumb-holder img").attr("src", "img/"+selectItemData["thumb"]+".jpg");
 		$(".popUp-front").find(".popUp-card-title").html(selectItemData["title"]);
@@ -530,6 +578,7 @@ $(function(){
 	}
 	function fadeInPopCard(){
 		$(".popUp-layer").show();
+		$(".popUp-body .body-scroll").scrollTop(0);
 		$(".popUp-front").animate({"top":"0px", "opacity":"1"},400,"easeOutCubic");
 	}
 	/***사건 팝업카드 관련**/
@@ -559,7 +608,7 @@ $(function(){
 			}
 		}
 		getRelCardPos(relCardIdArr);
-		focusingCard(relCardIdArr);
+		focusingCard(relCardIdArr, true);
 	};
 
 	var relCardPos;
@@ -581,11 +630,15 @@ $(function(){
 		$(".fixed-focus-item-list").fadeIn();
 	};
 
-	function focusingCard(arr){
+	function focusingCard(arr, t){
 		$(".timeline-el").addClass("timeline-el-off");
 		$(".sec-title").addClass("sec-title-off");
 		for(a=0; a<arr.length;a++){
-			$("."+arr[a]).addClass("timeline-el-focus");
+			if(t==true){
+				$("."+arr[a]).addClass("timeline-el-focus");
+			}else if(t==false){
+				$("."+arr[a]).addClass("timeline-el-focus timeline-el-noPath");
+			}
 			$("."+arr[a]).attr("data-focus-index", a);
 			$("."+arr[a]).find(".f_i").html(a+1);
 			$("."+arr[a]).find(".total").html(arr.length);
@@ -624,7 +677,7 @@ $(function(){
 			}
 		}
 
-		focusingCard(filteredCardIdArr);
+		focusingCard(filteredCardIdArr, false);
 		getFilterdCardPos(filteredCardIdArr);
 	};
 
@@ -648,7 +701,7 @@ $(function(){
 	function resolveFocusing(){
 		$(".filter-list ul li").removeClass("on");
 		$(".filter-list ul li").remove(".exit");
-		$(".timeline-el").removeClass("timeline-el-off timeline-el-focus");
+		$(".timeline-el").removeClass("timeline-el-off timeline-el-focus timeline-el-noPath");
 		$(".timeline-el").removeAttr("data-focus-index");
 		$(".sec-title").removeClass("sec-title-off");
 		$(".fixed-focus-item-list").hide();
@@ -691,9 +744,10 @@ $(function(){
 	function init(){
 		makeSectionCard();
 		hidePopCard();
-		var adjValue = (($(".story-header").height()-$(".story-header-front").height())/2)-40;
-		$(".story-header-front").animate({"top":adjValue+"px", "opacity":"1"}, 500);
+		$(".story-header-front").fadeIn(1000);
 	}
+	var adjValue = (($(".story-header").height()-$(".story-header-front").height())/2)-40;
+	$(".story-header-front").css({"top":adjValue+"px"});
 
 	$(".loading-page").fadeOut(200, function(){
 		init();
@@ -712,7 +766,6 @@ $(function(){
 		$("body").addClass("fixed");
 		$("html, body").animate({scrollTop: warpPos}, 700, "easeOutCubic", animateValue("YEAR_COUNTING", 2020, 1953, 2000) );
 		$("#YEAR_COUNTING").addClass("removeBlur");
-		$(".timeline-holder").delay(500).animate({"opacity":"1"}, 1500);
 	};
 	
 
@@ -730,7 +783,7 @@ $(function(){
 
 		if(nowScroll >timeWarpPoint&&timeWarpDone==false){
 			timeWarpDone=true;
-			//animateTimeWarp();
+			animateTimeWarp();
 		}
 
 		if(nowScroll>=timelineStartPos &&nowScroll< timelineEndPos){
@@ -748,16 +801,15 @@ $(function(){
 		
 		if(nowScroll > bubbleSvgPos && bubbleColorAnimate==false){
 			bubbleColorAnimate = true;
-			console.log("bubbleAnimation");
 			colorCircle();
 		}
 
-		if(nowScroll+screenHeight*0.4 > endTrafficPos &&  endTrafficAnimate==false){
+		if(nowScroll+screenHeight*0.7 > endTrafficPos &&  endTrafficAnimate==false){
 			endTrafficAnimate = true;
-			console.log("endTrafficAnimation");
-			$(".center-display").fadeIn( function(){
-				$(".bubble-traffic-holder").fadeIn(1000);
-			});
+			positioningPlots();
+			$("body").addClass("fixed");
+			$("html, body").animate({scrollTop: endTrafficPos-screenHeight*0.75 }, 700, "easeOutCubic" );
+			$(".center-display").fadeIn();
 			
 		}
 		
