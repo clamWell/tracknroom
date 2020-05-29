@@ -78,7 +78,7 @@ box-sizing: border-box;  padding: 10px; background: #ececf1;  border-radius: 4px
 .interactive-header .header_container { margin: 0 auto; width: 100%; height: 100%; position: relative; overflow: hidden; }
 .interactive-header .header_container .toggle-btn{ display:none; } 
 .interactive-header .khan_btn { float: left;  transition:all 0.5s ease 0s; }
-.interactive-header .khan_btn img { width:60px; height: auto; margin-top: 8px; opacity:0.7;}
+.interactive-header .khan_btn img { width:40px; height: auto; margin-top: 3px;}
 .interactive-header .khan_btn:hover { opacity: 1; }
 .interactive-header .share_bx { float: right;position: relative; top: -3px; }
 .interactive-header .share_bx span {pos ition: relative;  width: 22px; height: 40px;  cursor: pointer; }
@@ -185,7 +185,7 @@ width: 27px; height: 30px;}
 }
 
 .story-body { width:100%; }
-.time-warp { width:100%;box-sizing: border-box; padding: 200px 0; padding-bottom: 100px; }
+.time-warp { width:100%;box-sizing: border-box; padding: 300px 0;  }
 .time-warp .button { font-size: 20px; text-align: center; color:#fff; width: 300px; margin: 0 auto; font-weight: 300; } 
 .time-warp .number-count {margin-top: 30px;} 
 .time-warp .number-count p {font-size: 80px; text-align: center; color: #fff; font-weight: 200; line-height: 1; filter: blur(5px);
@@ -217,13 +217,14 @@ text-align: center; font-size:16px; }
 
 .front-ele-area {width: 100%; position: relative; top: 0; left: 0; z-index:2; }
 .front-ele-area .each-section {position: relative; box-sizing: border-box;padding: 80px 0; }
-.sec-title { position: relative; box-sizing:border-box; padding: 20px 0; background: rgb(14, 13, 13, 0.8);max-width: 900px; margin: 0 auto;}
+.sec-title { position: relative; box-sizing:border-box; padding: 25px 0; background: rgb(14, 13, 13, 0.8);
+max-width: 900px; margin: 0 auto; border: 1px solid #ff4800;}
 .sec-title > h2 {display: none;}
 .sec-title .img-title { margin-bottom: 15px;}
 .sec-title .img-title img { display: block; margin: 0 auto; }
 .sec-title  .sec-year {  text-align: center; font-size: 15px;  color: #fff; font-weight: bold; margin-bottom:15px;}
 .sec-title .sec-title-desc { } 
-.sec-title .sec-title-desc p {max-width: 600px;margin: 0 auto; margin-top: 20px;font-size: 20px;font-weight: 500;color: #e1e1e4;color: #fff;line-height: 1.6;text-align: center;text-align:left;}  
+.sec-title .sec-title-desc p {max-width: 600px;margin: 20px auto; font-size: 18px;font-weight: 500;color: #e1e1e4;color: #fff;line-height: 1.6;text-align: center;text-align:left;}  
 .section-body {width: 100%; position: relative;    margin-top: 100px;}
 
 .timeline-el {position: absolute;}
@@ -333,7 +334,7 @@ background:url("../img/thumb-shade.png") repeat-y;  background-position: right; 
 .timeline-el > svg { position: absolute; top:0; overflow: visible; width:10px; }
 .el-right svg {top: 50px;right: -10px; }
 svg .line-noraml { fill:none; stroke-width:1.2px; stroke:#ff6716; stroke-opacity: 0.5; }
-.timeline-el > svg  path { fill:none; stroke-width:1.2px; stroke:#ff6716; stroke-opacity: 1; }
+.timeline-el > svg  path { fill:none; stroke-width:1.2px; stroke:#ff6716; stroke-opacity: 0.5; }
 
 #svg-s1-e1 { top: 50px;right: -10px; }
 #svg-s3-e2 { top: 50px;left:20px; }
@@ -368,10 +369,32 @@ svg .line-noraml { fill:none; stroke-width:1.2px; stroke:#ff6716; stroke-opacity
 
 
 /**** 엔딩관련 *****/
+#SVG_BUBBLE { width: 100%; max-width: 500px;margin: 0 auto;  
+width: 500px; position: absolute;  top: 400px; left: 50%; margin-left: -250px;}
+#SVG_BUBBLE svg { overflow:visible;transform: scale(1.2);}
+#SVG_BUBBLE svg circle { fill: #111; }
 
 .front-ele-area .sec--15 { padding-bottom: 1000px; }
-.line-body-end { position:absolute; bottom: 0; width: 2px;height: 1800px; background: #ff4800;}
+.line-body-end { position:absolute; bottom: 0; width: 2px;height: 1800px; background: #ff4800;
+ background: linear-gradient(180deg,#ff4800, #111);}
 
+.ending-graphic { box-sizing: border-box;height: 500px; position: relative;  }
+.ending-graphic .bubble-traffic-holder { display:none;  width: 100%;height: 100%;max-width: 1200px;margin: 0 auto;  position: relative;}
+#END_TRAFFIC { width: 100%; height:100%;overflow:visible; transform: translate(0px, -100px);}
+#END_TRAFFIC .traffic-plots { fill: #ff6716; } 
+
+.ending-graphic .center-display { display:none; z-index: 3; width: 120px;left: 50%;margin-left: -60px; 
+box-sizing: border-box; position: absolute;top: 30px; }
+.ending-graphic .center-display img{  display:block; margin: 0 auto; }
+.traffic-plots-blink-0 { animation-delay: 0s; animation: blink 2s linear infinite; }
+.traffic-plots-blink-1 { animation-delay: 0.5s; animation: blink 2s linear infinite; }
+.traffic-plots-blink-2 { animation-delay: 1.2s; animation: blink 2s linear infinite; }
+.traffic-plots-blink-3 {  animation-delay: 1.7s; animation: blink 2s linear infinite; }
+@keyframes blink {
+  0%  {opacity: 0;  }
+  50% {opacity: 1;  }
+  100% {opacity: 0; }
+}
 
 
 /**** 사건개별 위치조정 ***/
@@ -630,6 +653,7 @@ display:none;}
 .fixed-focus-item-list .item-list-wrap ul li.on{color:#ff7800;text-decoration: underline; }
 
 
+
 /*****footer*****/
 .footer-area {  background:#fff;  margin-top: 100px;  box-shadow: 0px -15px 20px rgba(0,0,0,0.05); border-top: 1px solid #cdd1d6; 
 position: relative; z-index: 2; margin-top: 30px; }
@@ -670,7 +694,6 @@ padding: 30px 0; text-align: center;  max-width: 500px; margin: 0 auto;}
 .bottom-byline ul li a { display: inline-block;  color: #111;}
 .bottom-byline ul li a:hover { /* background: rgba(129, 144, 255, 0.5);*/ text-decoration:underline; }
 
-.digital-list-wrap { border-top: 1px solid #dbdbdb; }
 .digital-list { position: relative; }
 
 /******common footer******/
@@ -697,6 +720,31 @@ padding: 30px 0; text-align: center;  max-width: 500px; margin: 0 auto;}
 .gotomobile {text-align:center;} /* 모바일 화면으로 보기 링크 버튼 */
 
 
+/*****footer*****/
+.footer-area {     padding-top: 30px; background: linear-gradient(180deg,#070812 20%,#181923);
+background: linear-gradient(180deg,#0e0d0d 20%,#252524);border-top: none;}
+.bottom-byline {  border-top: 1px solid #30363f;  border-bottom: 1px solid #30363f; width: 100%; max-width: 750px; margin: 0 auto;  }
+.bottom-byline ul { box-sizing: border-box; padding :40px 0; padding-top: 30px; text-align: center;max-width: 700px; margin: 0 auto;}
+.bottom-byline ul .team-wrap { width: 50%; float: left;}
+.bottom-byline ul .team-wrap-sec { margin-top: 20px; }
+.bottom-byline ul::after { clear: both; content:''; display:block; }
+.bottom-byline ul li { opacity:0.7;  font-weight: 400; margin-bottom: 3px; font-size: 14px; color:#ecf0fb; }
+.bottom-byline ul li a { opacity:0.7;  font-weight: 400; margin-bottom: 3px; font-size: 14px; color:#ecf0fb; }
+.bottom-byline ul li a:hover { text-decoration: underline; }
+.bottom-byline ul li.team { font-weight: bold; font-size: 16px; letter-spacing: -1px; margin-bottom: 10px; }
+.bottom-byline ul li.team span { margin: 0px 5px; font-size: 13px; position: relative; top: -2px; }
+
+
+/*****digi reco dark CSS*****/
+.digital-list-dark {  background: #252524; border-top: 0px; }
+.digital-list-dark h4 {  color: #eeeff0; opacity: 0.7;text-shadow: none;}
+.digital-list-dark .digi-more a p { background: none; }
+.digital-list-dark .digi-more a p:hover { color:#fff; border:1px solid #fff; }
+.digital-list-dark .list-holder .each_item { border: none; background: #1a1f27;  border-radius: 4px;background: rgba(255,255,255,0.1);}
+.digital-list-dark .each_item a { color: #dedede; }
+.digital-list-dark .list-holder .each_item .item_info .item-title { font-size: 18px; line-height:24px; }
+
+.common-footer {    background: #252524; }
 
 /*-------------------------------------*/
 /***** 전체 기본 CSS - 모바일 기준******/
