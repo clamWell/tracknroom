@@ -267,6 +267,9 @@ $(function(){
 		var pathS14e2 = document.getElementById("svg-s14-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
 		pathS14e2.setAttributeNS(null,"d","M100,0 Q300,900 500,1780");
 
+		var pathS14e6 = document.getElementById("svg-s14-e6").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS14e6.setAttributeNS(null,"d","M160,0 Q-100,500 100,2700");	
+
 		var pathS14e8 = document.getElementById("svg-s14-e8").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
 		pathS14e8.setAttributeNS(null,"d","M300,0 Q-100,900 600,1720");
 
@@ -274,7 +277,8 @@ $(function(){
 		pathS14e11.setAttributeNS(null,"d","M220,0 Q400,1200 300,1350");
 
 		var pathS15e1 = document.getElementById("svg-s15-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		pathS15e1.setAttributeNS(null,"d","M200,0 Q350,300 300,400");		
+		pathS15e1.setAttributeNS(null,"d","M200,0 Q350,300 300,400");	
+		
 
 	};
 
@@ -289,15 +293,15 @@ $(function(){
 
 	
 	/******* bubble traffic  ******/
-	var width = 500, height = 500
+	var width = 600, height = 600
 
-	var numNodes = 300
+	var numNodes = 600
 	var nodes = d3.range(numNodes).map(function(d) {
-	  return {radius: randomRange(3,4) }
+	  return {radius: randomRange(2,3) }
 	})
 
 	var simulation = d3.forceSimulation(nodes)
-	  .force('charge', d3.forceManyBody().strength(3))
+	  .force('charge', d3.forceManyBody().strength(1))
 	  .force('center', d3.forceCenter(width / 2, height / 2))
 	  .force('collision', d3.forceCollide().radius(function(d) {
 		return d.radius
@@ -464,7 +468,7 @@ $(function(){
 				}).attr("r", function(){
 					return randomRange(1, 3);
 				}).style("fill-opacity",function(){
-					var r = randomRange(30,80);
+					var r = randomRange(0,20);
 					return r/100;
 				}).style("fill", function(){
 					var t= randomRange(1,3);
@@ -477,7 +481,7 @@ $(function(){
 					}else{
 						return "#ff8352";
 					}
-				}).style("filter","url(#glow)");
+				})
 		}
 	
 		var plots = d3.selectAll(".traffic-plots");
@@ -523,7 +527,7 @@ $(function(){
 
 	function afterPosition(){
 		$(".bubble-traffic-holder .img-back").fadeIn(1000, function(){
-			for(f=0; f< $(".bubble-traffic-holder .img-front .traffic-front").length;f++){
+			for(f=0; f< $(".traffic-nroom").length;f++){
 				$(".bubble-traffic-holder .img-front .traffic-front").eq(f).delay(300*f).fadeIn(1000);
 				$(".traffic-nroom").eq(f).delay(300*f).fadeIn(1000);
 			}
@@ -575,10 +579,11 @@ $(function(){
 	};
 	function hidePopCard(){
 		$(".popUp-front").css({"top":"100px", "opacity":"0"});
+		$("body").removeClass("fixed");
 	}
 	function fadeInPopCard(){
 		$(".popUp-layer").show();
-		$(".popUp-body .body-scroll").scrollTop(0);
+		$(".popUp-body .popUp-card-full-text").scrollTop(0);
 		$(".popUp-front").animate({"top":"0px", "opacity":"1"},400,"easeOutCubic");
 	}
 	/***사건 팝업카드 관련**/
@@ -733,8 +738,11 @@ $(function(){
 
 
 	/******** 모바일 전용 조정 ********/
-	if(isMobile==true){
-		
+	if(isMobile==true){		
+	}else { 
+		var adjValue = (($(".story-header").height()-$(".story-header-front").height())/2)-40;
+		$(".story-header-front").css({"top":adjValue+"px"});
+		setFilterToggleDefault();
 	
 	}
 	/******** 모바일 전용 조정 ********/
@@ -746,8 +754,6 @@ $(function(){
 		hidePopCard();
 		$(".story-header-front").fadeIn(1000);
 	}
-	var adjValue = (($(".story-header").height()-$(".story-header-front").height())/2)-40;
-	$(".story-header-front").css({"top":adjValue+"px"});
 
 	$(".loading-page").fadeOut(200, function(){
 		init();
@@ -757,14 +763,17 @@ $(function(){
 	/******** Scroll event listener ********/
 	var nowScroll;
 	var timeWarpDone = false; 
-	var timeWarpPoint = $(".time-warp .button").position().top-(screenHeight*0.7);
-	var warpPos = $(".time-warp .button").position().top-(screenHeight*0.3);
+	var timeWarpPoint =  $(".time-warp .button").offset().top-(screenHeight*0.4);
+	var warpPos = $(".time-warp .button").offset().top-(screenHeight*0.4);
 	var timelineStartPos = $(".timeline-holder").offset().top,
 		timelineEndPos = 0; 
 	
 	function animateTimeWarp(){
 		$("body").addClass("fixed");
-		$("html, body").animate({scrollTop: warpPos}, 700, "easeOutCubic", animateValue("YEAR_COUNTING", 2020, 1953, 2000) );
+		$("html, body").animate({scrollTop: warpPos}, 700, "easeOutCubic", function(){
+			 animateValue("YEAR_COUNTING", 2020, 1953, 2000);
+			 $(".top-timewarp-graphic").fadeOut(3000);
+		});
 		$("#YEAR_COUNTING").addClass("removeBlur");
 	};
 	
@@ -804,11 +813,11 @@ $(function(){
 			colorCircle();
 		}
 
-		if(nowScroll+screenHeight*0.7 > endTrafficPos &&  endTrafficAnimate==false){
+		if(nowScroll+screenHeight*0.9 > endTrafficPos &&  endTrafficAnimate==false){
 			endTrafficAnimate = true;
 			positioningPlots();
-			$("body").addClass("fixed");
-			$("html, body").animate({scrollTop: endTrafficPos-screenHeight*0.75 }, 700, "easeOutCubic" );
+			//$("body").addClass("fixed");
+			//$("html, body").animate({scrollTop: endTrafficPos-screenHeight*0.5 }, 700, "easeOutCubic" );
 			$(".center-display").fadeIn();
 			
 		}
@@ -830,6 +839,7 @@ $(function(){
 		$(this).removeClass("card-body-hover");
 	}).delegate(".el-card .card-body", "click", function(e){
 		var thisCardId = $(this).parent(".timeline-el").attr("data-id");
+		$("body").addClass("fixed");
 		makePopCard(thisCardId);
 	});
 
@@ -850,6 +860,11 @@ $(function(){
 		}
 	});
 
+	function setFilterToggleDefault(){
+		filterTabOpen=true;
+		$(".filter-toggle").addClass("filter-toggle-on");
+		$(".filter-list").slideDown();
+	};	
 
 	$(".filter-list ul li").on("click", function(e){
 		if(filterAct==false && (!$(this).hasClass("on"))){
