@@ -81,16 +81,28 @@ $(function(){
 			$this_card.find(".card-title").html(data[d]["title"]);
 			$this_card.addClass("el-"+data[d]["line"]);
 
-			if(data[d]["line"]=="center"){
-				$this_card.find(".arrow").addClass("arrow-up");
+			if(isMobile==true){
+				if(data[d]["line"]=="center"){
+					$this_card.find(".arrow").addClass("arrow-up");
+				}else if(data[d]["line"]=="right"){
+					$this_card.find(".arrow").addClass("arrow-right");
+				}else if(data[d]["line"]=="left"){
+					$this_card.find(".arrow").addClass("arrow-left");
+				}
 				$this_card.find(".arrow img").attr("src", "img/arrow-up.png");
-			}else if(data[d]["line"]=="right"){
-				$this_card.find(".arrow").addClass("arrow-right");
-				$this_card.find(".arrow img").attr("src", "img/arrow-right.png");
-			}else if(data[d]["line"]=="left"){
-				$this_card.find(".arrow").addClass("arrow-left");
-				$this_card.find(".arrow img").attr("src", "img/arrow-left.png");
-			}
+
+			}else{
+				if(data[d]["line"]=="center"){
+					$this_card.find(".arrow").addClass("arrow-up");
+					$this_card.find(".arrow img").attr("src", "img/arrow-up.png");
+				}else if(data[d]["line"]=="right"){
+					$this_card.find(".arrow").addClass("arrow-right");
+					$this_card.find(".arrow img").attr("src", "img/arrow-right-2.png");
+				}else if(data[d]["line"]=="left"){
+					$this_card.find(".arrow").addClass("arrow-left");
+					$this_card.find(".arrow img").attr("src", "img/arrow-left-2.png");
+				}
+			}		
 
 			if( (data[d]["pointTxt"]!==null )&&$this_card.find(".card-desc-point").length){
 				$this_card.find(".card-desc-point").html(data[d]["pointTxt"]);
@@ -176,12 +188,14 @@ $(function(){
 		pES3e3.setAttributeNS(null,"d","M0,0 Q-100,700 100,1600");
 		pES3e3.setAttributeNS(null,"class","line-noraml");
 
-		var svgS4e1 = document.getElementById("svg-s4-e1");
-		var pathS4e1 = document.createElementNS("http://www.w3.org/2000/svg", "path");
-		var pES4e1 = svgS4e1.appendChild(pathS4e1);
-		pES4e1.setAttributeNS(null,"d","M0,0 Q-100,1500 300,2500");
-		pES4e1.setAttributeNS(null,"class","line-noraml");
 
+
+
+		var pathS4e1 = document.getElementById("svg-s4-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS4e1.setAttributeNS(null,"d","M200,0 Q-100,100 -30,200");
+
+		var pathS4e5 = document.getElementById("svg-s4-e5").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+		pathS4e5.setAttributeNS(null,"d","M200,0 Q500,500 550,2300");
 
 		var svgS4e4 = document.getElementById("svg-s4-e4");
 		var pathS4e4 = document.createElementNS("http://www.w3.org/2000/svg", "path");
@@ -584,6 +598,7 @@ $(function(){
 	function fadeInPopCard(){
 		$(".popUp-layer").show();
 		$(".popUp-body .popUp-card-full-text").scrollTop(0);
+		$(".popUp-body .body-scroll").scrollTop(0);
 		$(".popUp-front").animate({"top":"0px", "opacity":"1"},400,"easeOutCubic");
 	}
 	/***사건 팝업카드 관련**/
@@ -630,7 +645,7 @@ $(function(){
 
 	function afterRelAct(){
 		var firstRelItemPos = relCardPos[0]-(screenHeight*0.4);
-		$("html, body").animate({scrollTop: firstRelItemPos}, 700, "easeOutCubic");
+		//$("html, body").animate({scrollTop: firstRelItemPos}, 700, "easeOutCubic");
 		makeFilterToggleUnable();
 		$(".fixed-focus-item-list").fadeIn();
 	};
@@ -674,10 +689,10 @@ $(function(){
 	/**** 카드 필터링 관련 함수들 ***/
 	function getFilterdCard(code){
 		var tag = code.replace("#", "");
-		console.log(tag);
+		//console.log(tag);
 		var filteredCardIdArr = new Array;
 		for(c=0;c<cardData.length;c++){
-			if(cardData[c]["tag"] == tag){
+			if(  cardData[c]["tag"] !== null && cardData[c]["tag"].indexOf(tag) !== -1 ){
 				filteredCardIdArr.push(cardData[c]["id"]);
 			}
 		}
@@ -697,7 +712,7 @@ $(function(){
 
 	function afterFitered(){
 		var firstFiltedItemPos = filteredCardPos[0]-(screenHeight*0.4);
-		$("html, body").animate({scrollTop: firstFiltedItemPos}, 700, "easeOutCubic");
+		//$("html, body").animate({scrollTop: firstFiltedItemPos}, 700, "easeOutCubic");
 		filterTabOpen=false;
 		$(".filter-toggle").removeClass("filter-toggle-on");
 		$(".filter-list").slideUp();
@@ -739,6 +754,8 @@ $(function(){
 
 	/******** 모바일 전용 조정 ********/
 	if(isMobile==true){		
+		$(".sec--7 .sec-title .img-title img").attr("src", "img/sec-title-07-m.png");
+
 	}else { 
 		var adjValue = (($(".story-header").height()-$(".story-header-front").height())/2)-40;
 		$(".story-header-front").css({"top":adjValue+"px"});
@@ -763,8 +780,8 @@ $(function(){
 	/******** Scroll event listener ********/
 	var nowScroll;
 	var timeWarpDone = false; 
-	var timeWarpPoint =  $(".time-warp .button").offset().top-(screenHeight*0.4);
-	var warpPos = $(".time-warp .button").offset().top-(screenHeight*0.4);
+	var timeWarpPoint = (isMobile==true)? ($(".time-warp .button").offset().top-(screenHeight*0.3)) : ($(".time-warp .button").offset().top-(screenHeight*0.4));
+	var warpPos = timeWarpPoint;
 	var timelineStartPos = $(".timeline-holder").offset().top,
 		timelineEndPos = 0; 
 	
@@ -856,7 +873,7 @@ $(function(){
 		}else{
 			filterTabOpen=false;
 			$(".filter-toggle").removeClass("filter-toggle-on");
-			$(".filter-list").slideUp();
+			$(".filter-list").hide();
 		}
 	});
 
@@ -866,10 +883,10 @@ $(function(){
 		$(".filter-list").slideDown();
 	};	
 
-	$(".filter-list ul li").on("click", function(e){
+	$(".filter-list ul li em").on("click", function(e){
 		if(filterAct==false && (!$(this).hasClass("on"))){
 			filterAct = true;	
-			var filterCode = $(this).find("em").html();
+			var filterCode = $(this).html();
 			$(".hidden-status .value").html(filterCode);
 			$(".filter-toggle-button").addClass("filter-toggle-button-selected");
 			getFilterdCard(filterCode);
