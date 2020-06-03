@@ -33,9 +33,6 @@ $(function(){
 				}
 				if (current == end) {
 					clearInterval(timer);
-					$("body").removeClass("fixed");
-					$(".time-warp").addClass("time-warp-after");
-					$(".timeline-area").animate({"opacity":"1"}, 1500);
 				}
 			}, stepTime);
 	}
@@ -52,13 +49,13 @@ $(function(){
 		var id = cardid;
 		switch (elType){
 			case "card":
-				return "<div class='timeline-el el-card el-with-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='img/"+id+".jpg' alt=''></div><div class='card-thumb'><img src='' alt=''><div class='thumb-shade'></div></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div><div class='view-card'><p>사건 설명 더보기 +</p></div></div><div class='card-share'><div class='share_fb'><a onclick='sendSns('facebook'); return false;'><img src='img/fb_icon_line_w.png' alt='페이스북' /></a></div><div class='share_tw'><a onclick='sendSns('twitter'); return false;'><img src='img/tw_icon_line_w.png' alt='트위터' /></a></div></div></div>";
+				return "<div class='hideme timeline-el el-card el-with-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='img/"+id+".jpg' alt=''></div><div class='card-thumb'><img src='' alt=''><div class='thumb-shade'></div></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div><div class='view-card'><p>사건 설명 더보기</p></div></div><div class='card-share'><div class='share_fb'><img src='img/fb_icon_line_w.png' alt='페이스북' /></div><div class='share_tw'><img src='img/tw_icon_line_w.png' alt='트위터' /></div></div></div>";
 				break;
 			case "simple-card":
-				return "<div class='timeline-el el-simple-card el-no-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='' alt=''></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div></div></div>";
+				return "<div class='hideme timeline-el el-simple-card el-no-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='' alt=''></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div></div></div>";
 				break;
 			case "simple":
-				return "<div class='timeline-el el-simple "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='card-text'><p class='card-title'></p></div></div></div>";
+				return "<div class='hideme timeline-el el-simple "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='card-text'><p class='card-title'></p></div></div></div>";
 				break;
 		}
 	};
@@ -594,7 +591,11 @@ $(function(){
 	function hidePopCard(){
 		$(".popUp-front").css({"top":"100px", "opacity":"0"});
 		$("body").removeClass("fixed");
+		scrollAble = true;
+		makeScrollAble();
+		$(window).scrollTop(lastBodyScroll);
 	}
+
 	function fadeInPopCard(){
 		$(".popUp-layer").show();
 		$(".popUp-body .popUp-card-full-text").scrollTop(0);
@@ -647,8 +648,9 @@ $(function(){
 		var firstRelItemPos = relCardPos[0]-(screenHeight*0.4);
 		//$("html, body").animate({scrollTop: firstRelItemPos}, 700, "easeOutCubic");
 		makeFilterToggleUnable();
-		$(".fixed-focus-item-list").fadeIn();
+		if( !isMobile ){ $(".fixed-focus-item-list").fadeIn() };
 	};
+
 
 	function focusingCard(arr, t){
 		$(".timeline-el").addClass("timeline-el-off");
@@ -712,7 +714,7 @@ $(function(){
 
 	function afterFitered(){
 		var firstFiltedItemPos = filteredCardPos[0]-(screenHeight*0.4);
-		//$("html, body").animate({scrollTop: firstFiltedItemPos}, 700, "easeOutCubic");
+		$("html, body").animate({scrollTop: firstFiltedItemPos}, 700, "easeOutCubic");
 		filterTabOpen=false;
 		$(".filter-toggle").removeClass("filter-toggle-on");
 		$(".filter-list").slideUp();
@@ -755,6 +757,7 @@ $(function(){
 	/******** 모바일 전용 조정 ********/
 	if(isMobile==true){		
 		$(".sec--7 .sec-title .img-title img").attr("src", "img/sec-title-07-m.png");
+		$(".sec--8 .sec-title .img-title img").attr("src", "img/sec-title-08-m.png");
 
 	}else { 
 		var adjValue = (($(".story-header").height()-$(".story-header-front").height())/2)-40;
@@ -786,12 +789,20 @@ $(function(){
 		timelineEndPos = 0; 
 	
 	function animateTimeWarp(){
-		$("body").addClass("fixed");
-		$("html, body").animate({scrollTop: warpPos}, 700, "easeOutCubic", function(){
-			 animateValue("YEAR_COUNTING", 2020, 1953, 2000);
-			 $(".top-timewarp-graphic").fadeOut(3000);
-		});
+		 timeWarpDone=true;
+		 animateValue("YEAR_COUNTING", 2020, 1953, 2000);
+		
+		 $(".top-timewarp-graphic").fadeOut(3000);
+		 setTimeout(function() {
+			$("body").removeClass("fixed");
+			scrollAble = true;
+			makeScrollAble();
+			$(".time-warp").addClass("time-warp-after");
+			$(".timeline-area").animate({"opacity":"1"}, 1500);
+		 }, 2500);
+
 		$("#YEAR_COUNTING").addClass("removeBlur");
+
 	};
 	
 
@@ -800,53 +811,88 @@ $(function(){
 	
 	var endTrafficAnimate = false;
 	var endTrafficPos; 
-	$(window).scroll(function(){
+	var scrollAble = true; 
+
+	function scrollDisable(){
+		$("body").addClass("scrollDisable").on("scroll touchmove mousewheel", function(e){
+			e.preventDefault();
+		});
+	}
+	function makeScrollAble(){
+		$("body").removeClass("scrollDisable").off("scroll touchmove mousewheel");
+	}
+
+	$(window).scroll(function(e){
 		var nowScroll = $(window).scrollTop();
-		//console.log(nowScroll);
-		var timelineScroll = nowScroll-timelineStartPos+screenHeight,
+		if(scrollAble==false){
+			e.preventDefault();
+			e.stopPropagation();
+			return false;
+		}else{
+			var timelineScroll = nowScroll-timelineStartPos+screenHeight,
 			timelinefullScroll = $(".timeline-holder").height(),	
 			ScrollPer = (timelineScroll/timelinefullScroll)*100;
 
-		if(nowScroll >timeWarpPoint&&timeWarpDone==false){
-			timeWarpDone=true;
-			animateTimeWarp();
-		}
-
-		if(nowScroll>=timelineStartPos &&nowScroll< timelineEndPos){
-			$(".card-filter").addClass("card-filter-fixed");
-			$(".fixed-navi").fadeIn();
-			if(isMobile==true){
-				$(".progress").css({"width":ScrollPer+"%"});
-			}else {
-				$(".progress").css({"height":ScrollPer+"%"});
+			if(nowScroll >timeWarpPoint&&timeWarpDone==false){
+				$("body").addClass("fixed");
+				scrollDisable();
+				scrollAble = false;
+				$("html, body").animate({scrollTop: warpPos}, 700, "easeOutCubic", function(){
+					if(	timeWarpDone==false){
+						animateTimeWarp();
+					}
+				});
 			}
-		}else if(nowScroll<timelineStartPos|| nowScroll>=timelineEndPos){
-			$(".card-filter").removeClass("card-filter-fixed");
-			$(".fixed-navi").hide();
-		}
-		
-		if(nowScroll > bubbleSvgPos && bubbleColorAnimate==false){
-			bubbleColorAnimate = true;
-			colorCircle();
-		}
 
-		if(nowScroll+screenHeight*0.9 > endTrafficPos &&  endTrafficAnimate==false){
-			endTrafficAnimate = true;
-			positioningPlots();
-			//$("body").addClass("fixed");
-			//$("html, body").animate({scrollTop: endTrafficPos-screenHeight*0.5 }, 700, "easeOutCubic" );
-			$(".center-display").fadeIn();
+			if(nowScroll>=timelineStartPos &&nowScroll< timelineEndPos){
+				$(".card-filter").addClass("card-filter-fixed");
+				$(".fixed-navi").fadeIn();
+				if(isMobile==true){
+					$(".progress").css({"width":ScrollPer+"%"});
+				}else {
+					$(".progress").css({"height":ScrollPer+"%"});
+				}
+			}else if(nowScroll<timelineStartPos|| nowScroll>=timelineEndPos){
+				$(".card-filter").removeClass("card-filter-fixed");
+				$(".fixed-navi").hide();
+			}
 			
+			if(nowScroll > bubbleSvgPos && bubbleColorAnimate==false){
+				bubbleColorAnimate = true;
+				colorCircle();
+			}
+
+			if(nowScroll+screenHeight*0.9 > endTrafficPos &&  endTrafficAnimate==false){
+				endTrafficAnimate = true;
+				positioningPlots();
+				//$("body").addClass("fixed");
+				//$("html, body").animate({scrollTop: endTrafficPos-screenHeight*0.5 }, 700, "easeOutCubic" );
+				$(".center-display").fadeIn();
+				
+			}
+
+			$(".hideme").each(function(i){
+				if( nowScroll + screenHeight > $(this).offset().top + $(this).outerHeight()*0.5 ){
+					$(this).animate({"opacity":"1"},1000);
+				}
+			});
+		
 		}
 		
 
+	});
+
+	$(".popUp-body .body-scroll").scroll(function(e){
+		e.stopPropagation();
+		e.preventDefault();
 	});
 	/******** Scroll event listener ********/
 
 	var filterTabOpen = false,
 		filterAct = false,
 		filteredCardIndex = new Array,
-		filteredCardPos = new Array;
+		filteredCardPos = new Array,
+		lastBodyScroll = 0;
 
 	$(".timeline-holder").delegate(".el-card .card-body", "mouseover", function(e){
 		if(!isMobile){
@@ -856,7 +902,11 @@ $(function(){
 		$(this).removeClass("card-body-hover");
 	}).delegate(".el-card .card-body", "click", function(e){
 		var thisCardId = $(this).parent(".timeline-el").attr("data-id");
+		lastBodyScroll = $(window).scrollTop();
+		console.log("body scroll pos: "+lastBodyScroll);
 		$("body").addClass("fixed");
+		scrollAble = false;
+		scrollDisable();
 		makePopCard(thisCardId);
 	});
 
@@ -933,6 +983,27 @@ $(function(){
 		}
 		$("html, body").animate({scrollTop: movePos}, 700, "easeOutCubic");
 	});
+
+
+	// 결과 공유하기
+   $(".section-body").delegate(".timeline-el .card-share .share_fb", "click", function(e){
+		e.preventDefault();
+		var cardId = $(this).parent(".card-share").parent(".timeline-el").attr("data-id").replace("-","_");
+		//console.log(cardId);
+		var url = encodeURIComponent("http://news.khan.co.kr/kh_storytelling/2020/tracknroom/result.html?cardId=" + cardId + "&fbrefresh=NOT_SEEN_BEFORE");
+		window.open('http://www.facebook.com/sharer/sharer.php?u=' + url);
+		return false;
+    });
+
+    $(".section-body").delegate(".timeline-el .card-share .share_tw","click", function(e){
+		e.preventDefault();
+		var cardId = $(this).parent(".card-share").parent(".timeline-el").attr("data-id").replace("-","_");
+		//console.log(cardId);
+		var url = encodeURIComponent("http://news.khan.co.kr/kh_storytelling/2020/tracknroom/result.html?cardId=" + cardId);
+		window.open('http://twitter.com/intent/tweet?url=' + url);
+		return false;
+    });
+
 
 
 

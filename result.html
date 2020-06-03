@@ -1,0 +1,48 @@
+<?php
+
+  $cardId = 0;
+  if ( empty($_GET["cardId"]) ) {
+	echo "<script>location.href = 'http://news.khan.co.kr/kh_storytelling/2020/tracknroom/';</script>";
+  } else {
+    $cardId = $_GET["cardId"];
+  }
+?>
+<!doctype html>
+<html>
+	<head>
+	<title>N번방 리와인드, 디지털 성범죄를 되감다 - 경향신문</title>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+	<meta name="keywords" content="경향신문, 인터랙티브, 스토리텔링, storytelling, N번방, 디지털성범죄, 아카이브, 성범죄아카이브, 여성사">
+    <meta name="description" content="텔레그램 성착취 사건은 하루 아침에 생겨난 범죄가 아니다. 지난 70년, 우리 사회가 방조해온 수 많은 성범죄가 빚어낸 결과물이자, 우리 사회가 만들어낸 디지털성범죄의 종합판이었다.">
+
+    <!-- SNS 공유 태그-->
+    <meta property="og:url" content="http://news.khan.co.kr/kh_storytelling/2020/tracknroom/result.html?cardId=<?php echo $cardId; ?>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="N번방 리와인드, 디지털 성범죄를 되감다" />
+    <meta property="og:description" content="텔레그램 성착취 사건은 하루 아침에 생겨난 범죄가 아니다. 지난 70년, 우리 사회가 방조해온 수 많은 성범죄가 빚어낸 결과물이자, 우리 사회가 만들어낸 디지털성범죄의 종합판이었다." />
+    <meta property="og:image" content="http://img.khan.co.kr/spko/storytelling/2020/tracknroom/share_<?php echo $cardId.'.jpg'; ?>" />
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="http://news.khan.co.kr/kh_storytelling/2020/tracknroom/result.html?cardId=<?php echo $cardId; ?>"">
+    <meta name="twitter:creator" content="@kyunghyang">
+    <meta name="twitter:title" content="N번방 리와인드, 디지털 성범죄를 되감다">
+    <meta name="twitter:description" content="텔레그램 성착취 사건은 하루 아침에 생겨난 범죄가 아니다. 지난 70년, 우리 사회가 방조해온 수 많은 성범죄가 빚어낸 결과물이자, 우리 사회가 만들어낸 디지털성범죄의 종합판이었다.">
+    <meta name="twitter:image" content="http://img.khan.co.kr/spko/storytelling/2020/tracknroom/share_<?php echo $cardId.'.jpg'; ?>">
+
+ </head>
+
+ 	<body>
+
+		<script>
+			window.onload = function(){
+				location.href = 'http://news.khan.co.kr/kh_storytelling/2020/tracknroom/';
+			};
+		</script>
+
+	</body>
+
+
+</html>
