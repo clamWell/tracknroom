@@ -78,6 +78,11 @@ $(function(){
 			$this_card.find(".card-title").html(data[d]["title"]);
 			$this_card.addClass("el-"+data[d]["line"]);
 
+
+			if(data[d]["shareAble"]!==null && data[d]["shareAble"]=="o"){
+				$this_card.addClass("card-shareable");
+			}
+
 			if(isMobile==true){
 				if(data[d]["line"]=="center"){
 					$this_card.find(".arrow").addClass("arrow-up");
@@ -636,8 +641,6 @@ $(function(){
 		$("#SVG_BUBBLE").addClass("svg-bubble-off");
 		$(".line-body-end").addClass("line-body-end-off");
 
-		$(".timeline-el-focus").find(".arr-up").show();
-		$(".timeline-el-focus").find(".arr-down").show();
 		for(a=0; a<arr.length;a++){
 			if(t==true){
 				$("."+arr[a]).addClass("timeline-el-focus");
@@ -648,6 +651,8 @@ $(function(){
 			$("."+arr[a]).find(".f_i").html(a+1);
 			$("."+arr[a]).find(".total").html(arr.length);
 		};
+		$(".timeline-el-focus").find(".arr-up").show();
+		$(".timeline-el-focus").find(".arr-down").show();
 		$(".timeline-el-focus").eq(0).find(".arr-up").hide();
 		$(".timeline-el-focus").eq(arr.length-1).find(".arr-down").hide();
 	};
@@ -972,7 +977,8 @@ $(function(){
 	// 결과 공유하기
    $(".section-body").delegate(".timeline-el .card-share .share_fb", "click", function(e){
 		e.preventDefault();
-		var cardId = $(this).parent(".card-share").parent(".timeline-el").attr("data-id").replace("-","_");
+		//var cardId = $(this).parent(".card-share").parent(".timeline-el").attr("data-id").replace("-","_");
+		var cardId = $(this).parent(".card-share").parent(".timeline-el").attr("data-id");
 		//console.log(cardId);
 		var url = encodeURIComponent("http://news.khan.co.kr/kh_storytelling/2020/tracknroom/result.html?cardId=" + cardId + "&fbrefresh=NOT_SEEN_BEFORE");
 		window.open('http://www.facebook.com/sharer/sharer.php?u=' + url);
@@ -981,7 +987,7 @@ $(function(){
 
     $(".section-body").delegate(".timeline-el .card-share .share_tw","click", function(e){
 		e.preventDefault();
-		var cardId = $(this).parent(".card-share").parent(".timeline-el").attr("data-id").replace("-","_");
+		var cardId = $(this).parent(".card-share").parent(".timeline-el").attr("data-id");
 		//console.log(cardId);
 		var url = encodeURIComponent("http://news.khan.co.kr/kh_storytelling/2020/tracknroom/result.html?cardId=" + cardId);
 		window.open('http://twitter.com/intent/tweet?url=' + url);
