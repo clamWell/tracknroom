@@ -197,21 +197,23 @@ left: 230px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);animation: blink 0.8s line
 }
 
 .story-body { width:100%;  padding-top: 300px; }
-.time-warp {  position: relative;  width:100%;box-sizing: border-box; margin: 300px 0; transition: all 1.5s ease 0s; }
+.time-warp {  position: relative;  width:100%;  height: 500px;box-sizing: border-box; margin: 300px 0; transition: all 1.5s ease 0s; }
 .time-warp .button { font-size: 20px; text-align: center; color:#fff; width: 300px; margin: 0 auto; font-weight: 300;text-shadow: 1px 1px 0px #111;} 
 .time-warp .number-count {margin-top: 10px;} 
-.time-warp .number-count p { font-size:150px; text-align: center; color: #fff; font-weight: 200; line-height: 1; filter: blur(5px);
-transition: all 1.5s ease 0s; opacity: 0.2;  letter-spacing: 5px; }
+.time-warp .number-count p { font-size:150px; text-align: center; color: #fff; font-weight: 200; line-height: 1;
+transition: all 1.5s ease 0s; opacity: 0;  letter-spacing: 2px; }
 .time-warp .number-count p.removeBlur { filter: none; opacity: 1;  }
-.time-warp-after { margin-bottom: 50px; }
-.time-warp-after .number-count p {font-size:50px;}
-
-.top-timewarp-graphic { width: 100%;position: absolute; z-index: -1;  opacity: 0.8;}
+.top-timewarp-graphic { width: 100%;position: absolute; z-index: 0;  opacity: 1;}
 .top-timewarp-graphic > img { width: 100%; display:block; margin: 0 auto; position: relative;width: 1400px;left: 50%; margin-left: -700px;}
-.top-timewarp-graphic .center-display { width: 120px;left: 50%; margin-left: -60px;box-sizing: border-box; position: absolute;  top: 200px;}
+.top-timewarp-graphic .center-display { width: 120px;left: 50%; margin-left: -60px;box-sizing: border-box; position: absolute;  top: 170px;}
 .top-timewarp-graphic .center-display img {  display: block; margin: 0 auto;animation: float 2.5s cubic-bezier(0.37,0.01,0.55,0.99) infinite;}
+.top-bubble-traffic-holder {height: 100%;width: 1200px; margin: 0 auto;position: relative;}
+#INTRO_TRAFFIC {width: 100%;  height: 100%; overflow: visible; position: relative;z-index: 2;}
+.top-timewarp-front {  transition: all 1.5s ease 0s; position: relative; left: 0; width: 100%; top: 300px; z-index:1;}
 
-.top-timewarp-front { position: relative; padding-top: 250px; }
+.time-warp-after { margin-bottom: 50px; height:50px;  }
+.time-warp-after .number-count p {font-size:50px;}
+.time-warp-after .top-timewarp-front {top:0;}
 
 .sec-bg {width: 100%; height:100vh;position: fixed; top: 0; left: 0;z-index:0; display:none; }
 .sec-bg ul {width:100%; height:100%;}
@@ -962,6 +964,7 @@ body.fixed {  height: 100vh; overflow-y: hidden; }
 .art_header .tit_view {   overflow: hidden;  margin-top: 4px;font-weight: normal;color: #121212; font-size: 24px; line-height: 29px;letter-spacing: -0.025em;}
 .interactive-header {display:block;}
 
+
 .top-feature-back { position: relative; height:220px; padding-top: 40px;  }
 .top-feature { position: relative; width: 100%; height: 600px; left: 60px;  bottom: auto; margin-left: 0;transform: scale(0.45); transform-origin: top left;}
 .story-header { height: 100%; }
@@ -975,14 +978,18 @@ body.fixed {  height: 100vh; overflow-y: hidden; }
 .going-down { position: relative; margin-top:70px; }
 .going-down span { font-size: 12px; }
 
-.story-body { padding-top:0;}
-.time-warp { margin: 100px auto;}
+.story-body { padding-top:100px;}
+.time-warp { margin: 150px auto;}
 .time-warp .button { font-size: 16px; }
+.time-warp-after { height:20px; }
 .time-warp-after .number-count p { font-size: 26px; }
 .top-timewarp-graphic > img { width: 800px; margin-left: -400px;}
-.top-timewarp-graphic .center-display {  width: 80px;  margin-left: -40px; top: 130px;}
+.top-timewarp-graphic .center-display {  width: 80px;  margin-left: -40px;top: 10px;}
 .top-timewarp-graphic .center-display img { width:100%; }
-.top-timewarp-front { padding-top: 200px; }
+.top-timewarp-front { top: 100px;  }
+
+.top-bubble-traffic-holder { left: 50%;margin-left: -600px;  transform: scale(0.5); transform-origin: top;}
+
 
 .timeline-manual {  padding-top: 40px; }
 .timeline-manual .manual-box {  width: 100%;box-sizing: border-box; padding: 0px 15px;}

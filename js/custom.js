@@ -202,7 +202,7 @@ $(function(){
 		if(!isMobile){
 			pathS1e1.setAttributeNS(null,"d","M0,0 Q200,600 0,4000");
 			pathS1e2.setAttributeNS(null,"d","M-100,0 Q00,500 -400,1900");
-			pathS3e1.setAttributeNS(null,"d","M300,0 Q-500,5000 400,21100");
+			pathS3e1.setAttributeNS(null,"d","M300,0 Q-500,5000 400,21150");
 			pathS3e2.setAttributeNS(null,"d","M0,0 Q-100,250 0,400");
 			pathS3e4.setAttributeNS(null,"d","M0,0 Q500,500 350,1000");
 			pathS3e3.setAttributeNS(null,"d","M0,0 Q-100,700 100,1600");
@@ -287,59 +287,62 @@ $(function(){
 
 	
 	/******* bubble traffic  ******/
-	var width = 600, height = 600
 
-	var numNodes = 600
-	var nodes = d3.range(numNodes).map(function(d) {
-	  return {radius: randomRange(2,3) }
-	})
+	function makeCenterForcedBubble(){
+		var width = 600, height = 600
+		var numNodes = 600
+		var nodes = d3.range(numNodes).map(function(d) {
+		  return {radius: randomRange(2,3) }
+		})
 
-	var simulation = d3.forceSimulation(nodes)
-	  .force('charge', d3.forceManyBody().strength(1))
-	  .force('center', d3.forceCenter(width / 2, height / 2))
-	  .force('collision', d3.forceCollide().radius(function(d) {
-		return d.radius
-	  }))
-	  .on('tick', ticked)
-	
-	var bubbleSvg = d3.select("#SVG_BUBBLE svg")
-				.attr("width", width)
-				.attr("height", height);
-	var bubbleHolder = bubbleSvg.append("g")
-								.attr("class","bubble-holder");
-
-	function ticked() {
-	  var u = bubbleHolder
-				.selectAll("circle")
-				.data(nodes)
-
-	  u.enter()
-		.append('circle')
-		.attr('r', function(d) {
+		var simulation = d3.forceSimulation(nodes)
+		  .force('charge', d3.forceManyBody().strength(1))
+		  .force('center', d3.forceCenter(width / 2, height / 2))
+		  .force('collision', d3.forceCollide().radius(function(d) {
 			return d.radius
-		})
-		.merge(u)
-		.attr('cx', function(d) {
-			return d.x
-		})
-		.attr("fill", function(){
-			var t= randomRange(1,3);
-			if(t=="1"){
-				return "#f86302";
-			}else if(t=="2"){
-				return "ff2a672";
-			}else if(t=="3"){
-				return "#ff4200";
-			}else{
-				return "#f86302";
-			}
-		})
-		.attr('cy', function(d) {
-			return d.y
-		})
+		  }))
+		  .on('tick', ticked)
+		
+		var bubbleSvg = d3.select("#SVG_BUBBLE svg")
+					.attr("width", width)
+					.attr("height", height);
+		var bubbleHolder = bubbleSvg.append("g")
+									.attr("class","bubble-holder");
 
-	  u.exit().remove()
+		function ticked() {
+		  var u = bubbleHolder
+					.selectAll("circle")
+					.data(nodes)
+
+		  u.enter()
+			.append('circle')
+			.attr('r', function(d) {
+				return d.radius
+			})
+			.merge(u)
+			.attr('cx', function(d) {
+				return d.x
+			})
+			.attr("fill", function(){
+				var t= randomRange(1,3);
+				if(t=="1"){
+					return "#f86302";
+				}else if(t=="2"){
+					return "ff2a672";
+				}else if(t=="3"){
+					return "#ff4200";
+				}else{
+					return "#f86302";
+				}
+			})
+			.attr('cy', function(d) {
+				return d.y
+			})
+		  u.exit().remove()
+		}
 	}
+	makeCenterForcedBubble();
+
 
 	function colorCircle(){
 		 d3.select("#SVG_BUBBLE svg")
@@ -362,18 +365,14 @@ $(function(){
 					return "#ff8352";
 				}
 			});
-
-		//simulation.alpha(0.2);
 	}
 	
 
-
+	function addtrafficPlots(svgId, pos){
 	
-	function addtrafficPlots(){
+		var t_svg = d3.select(svgId);
 
-		var endTrafficSvg = d3.select("#END_TRAFFIC");
-
-		var defs = endTrafficSvg.append("defs");
+		var defs = t_svg.append("defs");
 		var filter = defs.append("filter")
 			.attr("id","glow");
 
@@ -389,66 +388,69 @@ $(function(){
 			.attr("in","SourceGraphic");
 
 
-		var bubbleG_1 = endTrafficSvg.append("g")
+		var bubbleG = t_svg.append("g")
 									.attr("class","bubble-g bubble-g--1");
-		var bubbleG_2= endTrafficSvg.append("g")
-									.attr("class","bubble-g bubble-g--2")
-		var bubbleG_3 = endTrafficSvg.append("g")
-									.attr("class","bubble-g bubble-g--3")
-		var bubbleG_4 = endTrafficSvg.append("g")
-									.attr("class","bubble-g bubble-g--4")
 
-		var bubbleG_random = endTrafficSvg.append("g")
+		var bubbleG_random = t_svg.append("g")
 									.attr("class","bubble-g bubble-g--random");
 
 		var t_width = $(".bubble-traffic-holder").width();
 		var t_height = $(".bubble-traffic-holder").height();
-		var trafficNumb = 400;
-		var ranArr = [45,165,320,490];
 
-		for(g=0; g < 4;g++){
-			for(i=0; i<trafficNumb; i++){
-				var angle = i/30;
-				var circle = d3.select(".bubble-g--"+Number(g+1)).append("circle")
-					.attr("class", function(){
-						if( ranArr.indexOf(i) == -1){
-							return "traffic-plots";
-						}else{
-							return "traffic-plots";
-							//return "traffic-plots traffic-plots--"+i;
-						}
-					}).attr("data-cx", function(){
+		var trafficNumb = (pos=="end")? 1600: 1200;
+
+		for(i=0; i<trafficNumb; i++){
+			var angle = i/30;
+			var circle = bubbleG.append("circle")
+				.attr("class", "traffic-plots")
+				.attr("data-cx", function(){
+					if(pos == "end"){
 						return Math.cos(angle)*500 + randomRange(-300,300) + t_width/2;
-					}).attr("data-cy", function(){
-						return Math.sin(angle)*150+ randomRange(-80,80) + t_height/2;
-					}).attr("cx", function(){
-						//return Math.cos(angle)*500 + randomRange(-200,200) + t_width/2;
+					}else{
 						return randomRange(-t_width,t_width);
-					}).attr("cy", function(){
-						//return Math.sin(angle)*150+ randomRange(-50,50) + t_height/2;
+					}
+				}).attr("data-cy", function(){
+					if(pos == "end"){
+						return Math.sin(angle)*150+ randomRange(-80,80) + t_height/2;
+					}else{
+						return (randomRange(0, screenHeight * 4));
+					}
+				}).attr("cx", function(){
+					if(pos == "end"){
+						return randomRange(-t_width,t_width);
+					}else{
+						return Math.cos(angle)*500 + randomRange(-300,300) + t_width/2;
+					}
+				}).attr("cy", function(){
+					if(pos == "end"){
 						return -(randomRange(0, screenHeight * 3));
-					}).attr("r", function(){
-						return randomRange(2, 3);
-					}).style("fill-opacity",function(){
+					}else{
+						return Math.sin(angle)*150+ randomRange(-80,80) + t_height/2;
+					}
+				}).attr("r", function(){
+					return randomRange(2, 3);
+				}).style("fill-opacity",function(){
+					if(pos == "end"){
 						var r = randomRange(0,10);
-						return r/100;
-					}).style("fill", function(){
-						var t= randomRange(1,3);
-						if(t=="1"){
-							return "#ff7826";
-						}else if(t=="2"){
-							return "#de1500";
-						}else if(t=="3"){
-							return "#ff4200";
-						}else{
-							return "#ff8352";
-						}
-					});
-			}
-
+					}else{
+						var r = randomRange(70,100);
+					}
+					return r/100;
+				}).style("fill", function(){
+					var t= randomRange(1,3);
+					if(t=="1"){
+						return "#ff7826";
+					}else if(t=="2"){
+						return "#de1500";
+					}else if(t=="3"){
+						return "#ff4200";
+					}else{
+						return "#ff8352";
+					}
+				});
 		}
 		for(i=0; i<300; i++){
-			var circle = d3.select(".bubble-g--random").append("circle")
+			var circle = bubbleG_random.append("circle")
 				.attr("class", "traffic-plots")
 				.attr("data-cx", function(){
 					return randomRange(-t_width*1.5, t_width*1.5);
@@ -458,11 +460,19 @@ $(function(){
 				.attr("cx", function(){
 					return randomRange(-t_width,t_width);
 				}).attr("cy", function(){
-					return -(randomRange(0, screenHeight * 2.5));
+					if(pos == "end"){
+						return -(randomRange(0, screenHeight * 2.5));
+					}else{
+						return (randomRange(0, 500));
+					}
 				}).attr("r", function(){
 					return randomRange(1, 3);
 				}).style("fill-opacity",function(){
-					var r = randomRange(0,10);
+					if(pos == "end"){
+						var r = randomRange(0,10);
+					}else{
+						var r = randomRange(30,60);
+					}
 					return r/100;
 				}).style("fill", function(){
 					var t= randomRange(1,3);
@@ -477,28 +487,17 @@ $(function(){
 					}
 				})
 		}
-	
-		var plots = d3.selectAll(".traffic-plots");
-			plots.on("mouseover", function() {
-							d3.select(this)
-								.style("fill-opacity", "1")
-								.style("stroke", "#fff")
-								.style("stroke-width", "1px");
-						}).on("mouseout", function() {
-							d3.select(this)
-								.style("fill-opacity", null)
-								.style("stroke", null)
-								.style("stroke-width", null);
 
-						});
-
-		
 	}
+	addtrafficPlots("#INTRO_TRAFFIC", "intro");
+	addtrafficPlots("#END_TRAFFIC", "end");
 
-	addtrafficPlots();
-
-	function positioningPlots(){
-		var plots = d3.selectAll(".traffic-plots");
+	function positioningPlots(svgId, pos){
+		if(pos=="end"){
+			var plots = d3.selectAll("#END_TRAFFIC .traffic-plots");
+		}else{
+			var plots = d3.selectAll("#INTRO_TRAFFIC .traffic-plots");
+		}
 		plots.transition()
 				.duration(function() {
 					return randomRange(2000, 7000);
@@ -509,13 +508,22 @@ $(function(){
 				}).attr("cy", function(){
 					return d3.select(this).attr("data-cy");
 				}).style("fill-opacity",function(){
-					var r = randomRange(70,100);
-					return r/100;
-				}).on("end");
+					if(pos=="end"){
+						var r = randomRange(70,100);
+						return r/100;
+					}else{
+						return 0;
+					}
+				});
 
 		setTimeout(function() {
-			afterPosition();
-			$("body").removeClass("fixed");
+			if(pos=="end"){
+				afterPosition();
+				$("body").removeClass("fixed");
+			}else{
+			
+			}
+
 		}, 3000);
 	};
 
@@ -774,25 +782,27 @@ $(function(){
 	/******** Scroll event listener ********/
 	var nowScroll;
 	var timeWarpDone = false; 
-	var timeWarpPoint = (isMobile==true)? ($(".time-warp .button").offset().top-(screenHeight*0.3)) : ($(".time-warp .button").offset().top-(screenHeight*0.4));
+	var timeWarpPoint = (isMobile==true)? ($(".time-warp").offset().top-(screenHeight*0.3)) : ($(".time-warp").offset().top-(screenHeight*0.2));
 	var warpPos = timeWarpPoint;
 	var timelineStartPos = $(".timeline-holder").offset().top,
 		timelineEndPos = 0; 
 	
 	function animateTimeWarp(){
 		 timeWarpDone=true;
-		 animateValue("YEAR_COUNTING", 2020, 1953, 2000);
-		
-		 $(".top-timewarp-graphic").fadeOut(3000);
+		// animateValue("YEAR_COUNTING", 2020, 1953, 2000);
+		 positioningPlots("INTRO_TRAFFIC", "intro");
+		 $(".top-timewarp-graphic .center-display").fadeOut();
 		 setTimeout(function() {
 			$("body").removeClass("fixed");
 			scrollAble = true;
 			makeScrollAble();
 			$(".time-warp").addClass("time-warp-after");
-			$(".timeline-area").animate({"opacity":"1"}, 1500);
-		 }, 2500);
+			$("#YEAR_COUNTING").animate({"opacity":"1"}, 1500);
+			$(".timeline-area").animate({"opacity":"1"}, 1500, function(){
+				$("#INTRO_TRAFFIC").html("");
+			});
+		 }, 3000);
 
-		$("#YEAR_COUNTING").addClass("removeBlur");
 
 	};
 	
@@ -855,8 +865,8 @@ $(function(){
 
 			if(nowScroll+screenHeight*0.9 > endTrafficPos &&  endTrafficAnimate==false){
 				endTrafficAnimate = true;
-				positioningPlots();
-				$(".center-display").fadeIn();
+				positioningPlots("END_TRAFFIC", "end")
+				$(".ending-graphic .center-display").fadeIn();
 				
 			}
 
