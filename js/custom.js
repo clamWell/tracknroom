@@ -2,7 +2,7 @@ $(function(){
 	var ieTest = false,
 		screenWidth = $(window).width(),
 		screenHeight = $(window).height(),
-		imgURL = "http://img.khan.co.kr/spko/storytelling/2020/underground/",
+		imgURL = "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/",
 		isMobile = screenWidth <= 800 && true || false,
 		isNotebook = (screenWidth <= 1300 && screenHeight < 750) && true || false,
 		isMobileLandscape = ( screenWidth > 400 && screenWidth <= 800 && screenHeight < 450 ) && true || false;
@@ -49,7 +49,7 @@ $(function(){
 		var id = cardid;
 		switch (elType){
 			case "card":
-				return "<div class='hideme timeline-el el-card el-with-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='img/"+id+".jpg' alt=''></div><div class='card-thumb'><img src='' alt=''><div class='thumb-shade'></div></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div><div class='view-card'><p>사건 설명 더보기</p></div></div><div class='card-share'><div class='share_fb'><img src='img/fb_icon_line_w.png' alt='페이스북' /></div><div class='share_tw'><img src='img/tw_icon_line_w.png' alt='트위터' /></div></div></div>";
+				return "<div class='hideme timeline-el el-card el-with-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/"+id+".jpg' alt=''></div><div class='card-thumb'><img src='' alt=''><div class='thumb-shade'></div></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div><div class='view-card'><p>사건 설명 더보기</p></div></div><div class='card-share'><div class='share_fb'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/fb_icon_line_w.png' alt='페이스북' /></div><div class='share_tw'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/tw_icon_line_w.png' alt='트위터' /></div></div></div>";
 				break;
 			case "simple-card":
 				return "<div class='hideme timeline-el el-simple-card el-no-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='' alt=''></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div></div></div>";
@@ -91,18 +91,18 @@ $(function(){
 				}else if(data[d]["line"]=="left"){
 					$this_card.find(".arrow").addClass("arrow-left");
 				}
-				$this_card.find(".arrow img").attr("src", "img/arrow-up.png");
+				$this_card.find(".arrow img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arrow-up.png");
 
 			}else{
 				if(data[d]["line"]=="center"){
 					$this_card.find(".arrow").addClass("arrow-up");
-					$this_card.find(".arrow img").attr("src", "img/arrow-up.png");
+					$this_card.find(".arrow img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arrow-up.png");
 				}else if(data[d]["line"]=="right"){
 					$this_card.find(".arrow").addClass("arrow-right");
-					$this_card.find(".arrow img").attr("src", "img/arrow-right-2.png");
+					$this_card.find(".arrow img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arrow-right-2.png");
 				}else if(data[d]["line"]=="left"){
 					$this_card.find(".arrow").addClass("arrow-left");
-					$this_card.find(".arrow img").attr("src", "img/arrow-left-2.png");
+					$this_card.find(".arrow img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arrow-left-2.png");
 				}
 			}		
 
@@ -111,11 +111,11 @@ $(function(){
 			}
 
 			if( (data[d]["thumb"]!==null )&&$this_card.find(".card-thumb").length){
-				$this_card.find(".card-thumb img").attr("src", "img/"+data[d]["id"]+".jpg");
+				$this_card.find(".card-thumb img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/"+data[d]["id"]+".jpg");
 			}
 
 			if(data[d]["relCode"] !== null ){
-				$this_card.append("<div class='show-rel-card'><div class='rel-icon'><img src='img/rel-icon-2.png' alt='관련사건타래보기'><span class='icon-desc'>사건 타래 보기</span></div></div>");
+				$this_card.append("<div class='show-rel-card'><div class='rel-icon'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/rel-icon-2.png' alt='관련사건타래보기'><span class='icon-desc'>사건 타래 보기</span></div></div>");
 				$this_card.find(".show-rel-card").attr("data-rel-id", data[d]["relCode"]);
 				$this_card.addClass("el-with-rel");
 			}
@@ -150,7 +150,7 @@ $(function(){
 	function addCardNavi(){
 		var exitIcon = (isMobile==true)? "exit-icon-b-2" : "exit-icon-or-big";
 		$(".timeline-el").each(function(index,item){
-			$(item).append("<div class='filter-card-navi'><div class='arr-up'><img src='img/arr-up-or-bold.png' alt='필터링사건안에서이동'></div><div class='arr-down'><img src='img/arr-down-or-bold.png' alt='필터링사건안에서이동'></div><div class='filter-exit'><img src='img/"+exitIcon+".png' alt='필터링끄기'></div><div class='arr-info'><span class='f_i'></span><span class='slash'>/</span><span class='total'></span></div></div>");
+			$(item).append("<div class='filter-card-navi'><div class='arr-up'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arr-up-or-bold.png' alt='필터링사건안에서이동'></div><div class='arr-down'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arr-down-or-bold.png' alt='필터링사건안에서이동'></div><div class='filter-exit'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/"+exitIcon+".png' alt='필터링끄기'></div><div class='arr-info'><span class='f_i'></span><span class='slash'>/</span><span class='total'></span></div></div>");
 		});
 	};
 
@@ -549,7 +549,7 @@ $(function(){
 		}
 		//console.log(selectItemData);
 		$(".popUp-front").find(".year").html(selectItemData["ymd"]);
-		$(".popUp-front").find(".thumb-holder img").attr("src", "img/"+selectItemData["thumb"]+".jpg");
+		$(".popUp-front").find(".thumb-holder img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/"+selectItemData["thumb"]+".jpg");
 		$(".popUp-front").find(".popUp-card-title").html(selectItemData["title"]);
 		$(".popUp-front").find(".popUp-card-point-text p").html(selectItemData["pointTxt"]);
 		$(".popUp-front").find(".popUp-card-full-text").html(selectItemData["fullTxt"]);
@@ -755,8 +755,8 @@ $(function(){
 
 	/******** 모바일 전용 조정 ********/
 	if(isMobile==true){		
-		$(".sec--7 .sec-title .img-title img").attr("src", "img/sec-title-07-m.png");
-		$(".sec--8 .sec-title .img-title img").attr("src", "img/sec-title-08-m.png");
+		$(".sec--7 .sec-title .img-title img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/sec-title-07-m.png");
+		$(".sec--8 .sec-title .img-title img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/sec-title-08-m.png");
 
 	}else { 
 		var adjValue = (($(".story-header").height()-$(".story-header-front").height())/2)-40;
@@ -791,11 +791,11 @@ $(function(){
 		 timeWarpDone=true;
 		// animateValue("YEAR_COUNTING", 2020, 1953, 2000);
 		 positioningPlots("INTRO_TRAFFIC", "intro");
-		 $(".top-timewarp-graphic .center-display").fadeOut();
 		 setTimeout(function() {
 			$("body").removeClass("fixed");
 			scrollAble = true;
 			makeScrollAble();
+			$(".top-timewarp-graphic .center-display").fadeOut(1000);
 			$(".time-warp").addClass("time-warp-after");
 			$("#YEAR_COUNTING").animate({"opacity":"1"}, 1500);
 			$(".timeline-area").animate({"opacity":"1"}, 1500, function(){

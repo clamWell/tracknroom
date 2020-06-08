@@ -140,8 +140,8 @@ width: 27px; height: 30px;}
 
 .wrap { width:100%;  position: relative; overflow-x: hidden; }
 .container {  width:100%; position: relative; min-height: 100vh;}
-.shade-bottom { position: absolute; z-index: 9; bottom:0; left:0; width:100%; height: 100px; background: url("../img/shade-bottom.png") repeat-x; background-size: auto 100%; } 
-.shade-top { position: absolute; z-index: 9; top:0; left:0; width:100%; height: 100px; background: url("../img/shade-top.png") repeat-x; background-size: auto 100%; }
+.shade-bottom { position: absolute; z-index: 9; bottom:0; left:0; width:100%; height: 100px; background: url("http://img.khan.co.kr/spko/storytelling/2020/tracknroom/shade-bottom.png") repeat-x; background-size: auto 100%; } 
+.shade-top { position: absolute; z-index: 9; top:0; left:0; width:100%; height: 100px; background: url("http://img.khan.co.kr/spko/storytelling/2020/tracknroom/shade-top.png") repeat-x; background-size: auto 100%; }
 
 .story-header {  width:100%;  position: relative;min-height: 100vh;overflow: hidden;}
 .top-feature-back { width:100%; height: 100%;position: absolute; left:0;z-index:0; }
@@ -229,9 +229,9 @@ transition: all 1.5s ease 0s; opacity: 0;  letter-spacing: 2px; }
 .timeline-manual .manual-box ul li {color: #afafaf; font-size: 14px; text-align: center; text-shadow: 1px 1px 1px #111;  margin-bottom: 5px;}
 .timeline-manual .manual-box ul li span.rel-ex { font-weight:normal; padding: 2px 5px;border-radius: 2px;
 background: #ff4800;text-shadow: none; font-size: 12px; color: #fff; 
-background: #ff4800 url("../img/rel-icon-2.png") no-repeat; 
+background: #ff4800 url("http://img.khan.co.kr/spko/storytelling/2020/tracknroom/rel-icon-2.png") no-repeat; 
 background-size: 17px auto; padding-left: 22px;background-position: 3px 3px; }
-.timeline-manual .manual-box ul li span.tag-ex {    background: url("../img/filter-icon.png") no-repeat;background-position: 2px 2px; background-size: 14px auto;
+.timeline-manual .manual-box ul li span.tag-ex {    background: url("http://img.khan.co.kr/spko/storytelling/2020/tracknroom/filter-icon.png") no-repeat;background-position: 2px 2px; background-size: 14px auto;
 padding-left: 20px; font-size: 12px; color: #fff;margin-right: 5px; }
 
 .timeline-area { opacity: 0; width: 100%; /*overflow-x: hidden; */overflow-y: visible; box-sizing: border-box;
@@ -282,7 +282,7 @@ box-shadow: 5px 5px 10px rgba(0,0,0,0.8); z-index: 3;  position: relative;}
 /* .view-card p:hover { opacity:1;  background: #eaeaea;} */
 .timeline-el .card-body .arrow { position: absolute; }
 .thumb-shade { width:150px; height:100%; position:absolute;  right:0; top:0;bottom:0;
-background:url("../img/thumb-shade.png") repeat-y;  background-position: right; background-size: 100% auto;}
+background:url("http://img.khan.co.kr/spko/storytelling/2020/tracknroom/thumb-shade.png") repeat-y;  background-position: right; background-size: 100% auto;}
 .card-share { position: absolute; bottom: -32px; right: 6px; display:none; }
 .card-share > div { float: left;  cursor: pointer;opacity: 0.7;}
 .card-share .share_fb { margin-right: 10px;}
@@ -348,7 +348,7 @@ background:url("../img/thumb-shade.png") repeat-y;  background-position: right; 
 
 .el-with-img.el-left .card-body .card-text{ padding-right: 120px; padding-left:0;}
 .el-with-img.el-left .card-body .card-thumb { left:auto; right:0;}
-.el-left .thumb-shade { right: auto; left: 0; background:url("../img/thumb-shade-left.png") repeat-y;background-position: right; background-size: 100% auto;}
+.el-left .thumb-shade { right: auto; left: 0; background:url("http://img.khan.co.kr/spko/storytelling/2020/tracknroom/thumb-shade-left.png") repeat-y;background-position: right; background-size: 100% auto;}
 .el-left .view-card { right:auto; }
 .el-left.el-simple { left:0; width:auto; }
 .el-left.el-simple  .el-year {top: -20px;left: -40px; }
@@ -490,8 +490,8 @@ box-sizing: border-box; position: absolute;top: 30px; }
 
 
 .ending-graphic .ending-text {margin-bottom: 50px; width:100%; position: relative; margin-top: 100px;}
-.ending-graphic .ending-text p {max-width: 600px; margin: 10px auto; font-size: 20px;  font-weight: 500;  color: #e1e1e4;
-color: #fff; line-height: 1.6; text-align: center;  }
+.ending-graphic .ending-text p {max-width: 600px; margin: 20px auto; font-size: 20px;  font-weight: 500;  color: #e1e1e4;
+color: #fff; line-height: 1.6; /* text-align: center;  */ }
 .ending-graphic .pc-share {    margin: 0 auto;}
 
 @keyframes rot {
@@ -678,7 +678,7 @@ cursor: pointer; opacity: 0.8;border: 1px solid #fff;border-radius: 4px; positio
 .card-filter .filter-list > ul li em { font-style: normal;cursor: pointer; display: inline-block; box-sizing: border-box;
  padding: 3px 10px; font-size: 13px;margin: 2px 2px; border-radius: 3px; font-weight: bold; background: rgba(255,255,255,0.85);}
 .card-filter .filter-list > ul li.on {position: relative; color: #ff8300;  background:#fff; box-sizing:border-box; padding-right: 25px; }
-.card-filter .filter-list > ul li.on span.exit { display:block; width:10px; height:10px; background:url("../img/exit-icon-or.png") no-repeat; 
+.card-filter .filter-list > ul li.on span.exit { display:block; width:10px; height:10px; background:url("http://img.khan.co.kr/spko/storytelling/2020/tracknroom/exit-icon-or.png") no-repeat; 
 background-size:10px 10px; position:absolute;  right: 8px;  top: 9px; }
 .card-filter .filter-list > ul li p { display: inline-block; color: #fff; font-size: 13.5px; padding-left: 10px;  opacity: 0.75;}
 .card-filter .filter-list > ul li:hover > em { color: #ff8300; background:#fff; }
@@ -695,7 +695,7 @@ position: absolute;  top: 50%; margin-top: -4px;right:10px; background-size: 8px
 .hidden-status {position: absolute;top: 0; right: -140px; display:none;}
 .hidden-status .user-select { font-size: 14px; box-sizing: border-box; padding: 6px 15px;padding-right: 30px;color: #ff7800;cursor: pointer;  border-radius: 2px;}
 .hidden-status .value {padding-left: 4px;}
-.hidden-status .exit { display:block; width:10px; height:10px; background:url("../img/exit-icon-or.png") no-repeat; 
+.hidden-status .exit { display:block; width:10px; height:10px; background:url("http://img.khan.co.kr/spko/storytelling/2020/tracknroom/exit-icon-or.png") no-repeat; 
 background-size:10px 10px; position:absolute;  right: 8px;  top: 10px; }
 .filter-toggle-button-selected .hidden-status { display:block; }
 .card-filter .filter-toggle-button-selected .button-border {  pointer-events: none;  border: none; }
@@ -741,8 +741,8 @@ background: #ff4800; box-sizing: border-box;padding: 7px 12px; display: none;}
 .popUp-body .show-rel-card .icon-desc {position: relative;  opacity: 1; right: 0;  text-shadow: none; font-weight: normal;}
 
 .popUp-body .popUp-card-text-holder .popUp-card-full-text {  max-height: 25vh; overflow-y: scroll; background: #efefef; padding: 0px 20px;}
-.popUp-body .w-shade-up { display:none; width: 100%; height: 30px; position: absolute; top:0; left:0; background:url("../img/w-shade-up.png") repeat-x; background-size: auto 100%; }
-.popUp-body .w-shade-down {display:none; width: 100%; height: 30px; position: absolute; bottom:0; left:0; background:url("../img/w-shade-down.png") repeat-x;  background-size: auto 100%; }
+.popUp-body .w-shade-up { display:none; width: 100%; height: 30px; position: absolute; top:0; left:0; background:url("http://img.khan.co.kr/spko/storytelling/2020/tracknroom/w-shade-up.png") repeat-x; background-size: auto 100%; }
+.popUp-body .w-shade-down {display:none; width: 100%; height: 30px; position: absolute; bottom:0; left:0; background:url("http://img.khan.co.kr/spko/storytelling/2020/tracknroom/w-shade-down.png") repeat-x;  background-size: auto 100%; }
 .m-close { display:none;}
 
 /**** 사건카드 팝업 ***/
@@ -942,7 +942,7 @@ body.fixed {  height: 100vh; overflow-y: hidden; }
 .head_article .box_menu_left .btn_menu {float:left; width:35px; height:38px;}
 .head_article .box_menu_left .btn_menu .ico_menu {display:block; width:20px; height:20px; margin:10px auto 0; background:url("http://img.khan.co.kr/mobile/images/2018/ico_hr_top_menu.png") no-repeat 0 0; background-size:20px 20px; text-indent:-9999px;}
 .head_article .box_menu_left .btn_gohome {float:left; width:35px; height:38px;}
-.head_article .box_menu_left .btn_gohome .ico_gohome { display: block; width: 37px; height:20px; margin:8px auto 0; background:url("../img/flat_logo_b.png") no-repeat 0 0; background-size:37px 20px; text-indent:-9999px; }
+.head_article .box_menu_left .btn_gohome .ico_gohome { display: block; width: 37px; height:20px; margin:8px auto 0; background:url("http://img.khan.co.kr/spko/storytelling/2020/tracknroom/flat_logo_b.png") no-repeat 0 0; background-size:37px 20px; text-indent:-9999px; }
 .head_article .box_menu_right {position:absolute; right:5px; top:0; z-index:20;}
 .box_menu_btn {float:left; width:auto; height:38px; margin:0 7px;}
 .box_menu_btn em {position:relative; top:-3px; margin-left:3px; font-size:12px;}
