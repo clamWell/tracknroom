@@ -261,7 +261,7 @@ $(function(){
 			pathS12e2.setAttributeNS(null,"d","M150,0 Q400,700 100,1500");
 			pathS13e1.setAttributeNS(null,"d","M150,0 Q-200,2000 250,3280");
 			pathS13e2.setAttributeNS(null,"d","M50,0 Q-200,3000 300,4250");
-			pathS13e3.setAttributeNS(null,"d","M150,0 Q-100,1000 260,2800");
+			pathS13e3.setAttributeNS(null,"d","M150,0 Q-100,1000 260,2830");
 			pathS13e6.setAttributeNS(null,"d","M50,0 Q-100,400 150,1100");
 			pathS13e7.setAttributeNS(null,"d","M50,0 Q-100,1200 220,2750");
 			pathS13e12.setAttributeNS(null,"d","M150,0 Q300,1200 100,2100");

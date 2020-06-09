@@ -1190,6 +1190,23 @@ var cardData = [
     "relCode": "정준영단톡방"
   },
   {
+    "id": "s14-e13",
+    "sec": "s14",
+    "line": "left",
+    "lineType": "사회",
+    "elType": "simple",
+    "thumb": null,
+    "thumbDone": null,
+    "ymd": "2019.03",
+    "shareAble": null,
+    "title": "버닝썬 이문호 대표, “승리의 3년 전 카톡이 죄가 된다면 대한민국 남성들은 다 죄인 아닌가.”",
+    "titleHidden": null,
+    "pointTxt": null,
+    "fullTxt": null,
+    "tag": null,
+    "relCode": null
+  },
+  {
     "id": "s14-e3",
     "sec": "s14",
     "line": "right",
@@ -1382,7 +1399,7 @@ var cardData = [
     "line": "center",
     "lineType": "사건",
     "elType": "card",
-    "thumb": "s15-e1\r\n",
+    "thumb": "s15-e1\n",
     "thumbDone": "o",
     "ymd": "2020.03",
     "shareAble": "o",
