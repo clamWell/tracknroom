@@ -1092,6 +1092,7 @@ margin: 10px auto;word-break: keep-all;font-weight: 300;}
 .el-card .card-body:hover > .view-card p { background:none; opacity: 0.7; }
 .el-simple-card .card-body { min-height: inherit; }
 
+.sec--5 .sec-title .img-title img { height: 47px; }
 .sec--7 .sec-title .img-title img { height: 47px; }
 .sec--8 .sec-title .img-title img { height: 47px; }
 .sec--14 .sec-title .img-title img { height: 42px; }

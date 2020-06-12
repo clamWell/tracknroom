@@ -755,6 +755,7 @@ $(function(){
 
 	/******** 모바일 전용 조정 ********/
 	if(isMobile==true){		
+		$(".sec--5 .sec-title .img-title img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/sec-title-05-m.png");
 		$(".sec--7 .sec-title .img-title img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/sec-title-07-m.png");
 		$(".sec--8 .sec-title .img-title img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/sec-title-08-m.png");
 
