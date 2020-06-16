@@ -502,6 +502,7 @@ $(function(){
 		plots.transition()
 				.duration(function() {
 					return randomRange(2000, 7000);
+					
 				})
 				.ease(d3.easeQuadInOut)
 				.attr("cx", function(){
@@ -631,7 +632,7 @@ $(function(){
 			relCardPos.push( $("."+arr[a]).offset().top);
 		}
 		afterRelAct();
-		console.log(relCardPos);
+		//console.log(relCardPos);
 		return relCardPos;
 	};
 
@@ -851,7 +852,7 @@ $(function(){
 				$("body").addClass("fixed");
 				//scrollDisable();
 				scrollAble = false;
-				$("html, body").animate({scrollTop: warpPos}, 700, "easeOutCubic", function(){
+				$("html, body").animate({scrollTop: warpPos}, 300, "easeOutCubic", function(){
 					if(	timeWarpDone==false){
 						animateTimeWarp();
 					}
@@ -878,7 +879,7 @@ $(function(){
 
 			if(nowScroll+screenHeight > endTrafficPos &&  endTrafficAnimate==false){
 				endTrafficAnimate = true;
-				console.log("END_TRAFFIC");
+				//console.log("END_TRAFFIC");
 				positioningPlots("END_TRAFFIC", "end")
 				$(".ending-graphic .center-display").fadeIn();
 				
@@ -916,10 +917,10 @@ $(function(){
 	}).delegate(".el-card .card-body", "click", function(e){
 		var thisCardId = $(this).parent(".timeline-el").attr("data-id");
 		lastBodyScroll = $(window).scrollTop();
-		console.log("body scroll pos: "+lastBodyScroll);
+		//console.log("body scroll pos: "+lastBodyScroll);
 		$("body").addClass("fixed");
 		scrollAble = false;
-		scrollDisable();
+		//scrollDisable();
 		makePopCard(thisCardId);
 	});
 
