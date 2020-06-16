@@ -13,6 +13,7 @@ $(function(){
 	$(window).resize(function() {
 		screenWidth = $(window).width();
 		screenHeight = $(window).height();
+		reSetFrameAni();
     });
 
 	$(".close-ie-block").on("click", function(){
@@ -280,7 +281,7 @@ $(function(){
 	function getTimelineHeight(){
 		timelineEndPos = $(".timeline-holder").offset().top + $(".timeline-holder").height();
 		bubbleSvgPos = $(".sec-title--15").offset().top;
-		endTrafficPos = $(".ending-graphic").offset().top;
+		endTrafficPos = (isMobile==true)?  $(".ending-graphic").offset().top-screenHeight*0.4 : $(".ending-graphic").offset().top;
 	};
 
 	/***** 사건 카드 생성 관련 함수들 *****/
@@ -731,9 +732,19 @@ $(function(){
 	};
 	/**** 카드 필터링 관련 함수들 ***/
 
-
+	function clearFrameAni(){
+		clearInterval(itemBlinkingRepeat);
+	}
+	
+	function reSetFrameAni(ob){
+		
+		$(".top-graphic-device img").css("width", $(".top-graphic-device").width()*2);
+		makeFrameAni($(".top-graphic-device img"), 600);
+	}
+	var itemBlinkingRepeat;
 	// 2 cut frame Animation
 	function makeFrameAni(ob, time){
+		clearFrameAni();
 		var $itemDiv = ob;
 		var moveValue = $itemDiv.width() / 2;
 		function itemBlinking(){
@@ -748,9 +759,9 @@ $(function(){
 				$itemDiv.css({"left": -moveValue + "px"});
 			}, time);
 		}
-		var itemBlinkingRepeat = setInterval( function(){ itemBlinking() }, time*2);
+		itemBlinkingRepeat = setInterval( function(){ itemBlinking() }, time*2);
 	};
-	 makeFrameAni($(".top-graphic-device img"), 600);		
+	makeFrameAni($(".top-graphic-device img"), 600);		
 
 
 	/******** 모바일 전용 조정 ********/
@@ -758,6 +769,7 @@ $(function(){
 		$(".sec--5 .sec-title .img-title img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/sec-title-05-m.png");
 		$(".sec--7 .sec-title .img-title img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/sec-title-07-m.png");
 		$(".sec--8 .sec-title .img-title img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/sec-title-08-m.png");
+		$(".video-boxing iframe").css({"width":$(".blank img").width(),"height":$(".blank img").height()});
 
 	}else { 
 		var adjValue = (($(".story-header").height()-$(".story-header-front").height())/2)-40;
@@ -864,8 +876,9 @@ $(function(){
 				colorCircle();
 			}
 
-			if(nowScroll+screenHeight*0.9 > endTrafficPos &&  endTrafficAnimate==false){
+			if(nowScroll+screenHeight > endTrafficPos &&  endTrafficAnimate==false){
 				endTrafficAnimate = true;
+				console.log("END_TRAFFIC");
 				positioningPlots("END_TRAFFIC", "end")
 				$(".ending-graphic .center-display").fadeIn();
 				

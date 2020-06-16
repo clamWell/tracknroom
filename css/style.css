@@ -706,6 +706,12 @@ background-size:10px 10px; position:absolute;  right: 8px;  top: 10px; }
 
 .hideme { opacity:0;}
 
+.video-holder { width: 800px; margin: 100px auto; }
+.video-holder .video-boxing { width:100%; height: 460px; background:#111; position: relative; }
+.video-holder .des {color:#fff; font-size: 15px; opacity: 0.4; width:100%; text-align: center;  padding: 20px 0; }
+.video-holder .video-boxing iframe { width: 800px; height: 460px; } 
+.blank {display: none; } 
+
 /**** 사건카드 팝업 ***/
 .popUp-layer { display: none;}
 .popUp-back { position: fixed; top:0;left:0; background: rgba(26, 26, 27, 0.7); backdrop-filter: blur(2px); -webkit-backdrop-filter: blur(2px);width:100%; height:100vh;  z-index: 998; }
@@ -794,7 +800,8 @@ position: relative; z-index: 2; margin-top: 30px; }
 .footer-area .copyright p { text-align: center; font-size: 14px; color:#555;line-height: 20px;  margin: 5px 0; }
 
 .rel-article {  padding: 30px 0px; }
-.rel-article .rel-box { width:100%; max-width: 750px; margin: 0 auto;   border: 1px solid #d2d1d6; border-bottom: 4px solid #222;}
+.rel-article .rel-box { width:100%; max-width: 750px; margin: 0 auto;  border-bottom: 4px solid #222;
+ background: #3b3b3a; background: rgba(255,255,255,0.1);}
 .rel-article .rel-box-2 {   margin: 20px auto;}
 .rel-article .rel-box-2 .rel-art-list { padding: 10px; }
 .rel-article .rel-box .thumb { width:100%; position: relative; height: auto; }
@@ -805,13 +812,14 @@ position: relative; z-index: 2; margin-top: 30px; }
 .rel-article .rel-box .rel-art-list { width:100%; box-sizing: border-box; padding: 20px 15px;position: relative;  }
 .rel-article .rel-box .rel-art-list ul { width:100%; }
 .rel-article .rel-box .rel-art-list ul li { margin: 6px 0px; text-align: center; }
-.rel-article .rel-box .rel-art-list ul li a { text-align:left; color: #555; font-size: 17px; line-height:24px; }
+.rel-article .rel-box .rel-art-list ul li a { text-align:left; color: #dedede;font-size: 17px; line-height:24px; }
 .rel-article .rel-box .rel-art-list ul li a:hover { text-decoration: underline; }
 .rel-article .rel-box .rel-art-list .more-btn { position: absolute; right: 10px; bottom: 10px; font-size: 14px;
 color: #777;  background: url("http://img.khan.co.kr/spko/storytelling/2018/big/outlink.png") no-repeat; 
 background-size: 15px 15px; padding-right: 20px;background-position: right;  cursor: pointer; opacity:0.7; }
 .rel-article .rel-box .rel-art-list .more-btn:hover { opacity:1; }
-.rel-article h4 { font-size: 16px;font-weight: 500;  text-align: center;margin-bottom: 20px;  margin-top: 20px;}
+.rel-article h4 { font-size: 16px;font-weight: 500;  text-align: center;margin-bottom: 20px;  margin-top: 20px;
+color: #eeeff0; opacity: 0.7;}
 .rel-article .rel-box-bottom { margin-top: 20px; }
 
 .bottom-byline {   width: 100%; max-width: 1050px;margin: 0 auto; margin-top: 20px;  }
@@ -1293,6 +1301,20 @@ margin: 10px auto;word-break: keep-all;font-weight: 300;}
 .bottom-byline ul .team-wrap {  width:100%; float:none;}
 .bottom-byline ul li { line-height:1.3;}
 .bottom-byline ul li a { font-size:13px; line-height:1; }
+
+.video-holder {  width:100%; box-sizing: border-box; padding: 0px 15px;    margin: 00px auto; }
+.video-holder .video-boxing { position: relative; height:auto; width:100%; }
+.video-holder .video-boxing p { padding-top: 120px; }
+.blank {display: block; position: relative; width:100%; height:auto; } 
+.blank img { width:100%; height:auto; }
+.video-holder iframe { position: absolute; top: 0; left:0;  }
+
+.ending-graphic .pc-share { margin-top: 30px;}
+
+.rel-article { padding: 20px 15px;  box-sizing: border-box;}
+.rel-article .rel-box { }
+.rel-article .rel-box .rel-art-list { padding: 15px; }
+.rel-article .rel-box .rel-art-list ul li a {  font-size: 16px; line-height:1.5; }
 
 }
 
