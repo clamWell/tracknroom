@@ -988,7 +988,7 @@ body.fixed {  height: 100vh; overflow-y: hidden; }
 .going-down span { font-size: 12px; }
 
 .story-body { padding-top:100px;}
-.time-warp { margin: 150px auto;}
+.time-warp { margin: 150px auto;    margin-bottom: 250px;}
 .time-warp .button { font-size: 16px; }
 .time-warp-after { height:20px; }
 .time-warp-after .number-count p { font-size: 26px; }
@@ -1007,8 +1007,8 @@ body.fixed {  height: 100vh; overflow-y: hidden; }
 .timeline-manual .manual-box ul li span.tag-ex { background-size: 12px auto; padding-left: 18px;}
 
 .timeline-area { padding-top: 100px; padding-top: 0; }
-.card-filter { position: relative; }
-.card-filter-fixed {background: none; backdrop-filter:none; position: fixed;}
+.card-filter { z-index: 2;top:-100px; }
+.card-filter-fixed {background: none; backdrop-filter:none; position: fixed; top: 32px;  z-index: 997;}
 .card-filter .filter-wrap .filter-toggle {  padding: 10px 10px; }
 .card-filter .filter-toggle-button .button-border { font-size: 12px; padding: 4px 10px; background: #111; border:none;}
 .card-filter .filter-toggle-button .button-border:hover {background: #111; }
