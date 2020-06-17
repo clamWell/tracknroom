@@ -50,7 +50,7 @@ $(function(){
 		var id = cardid;
 		switch (elType){
 			case "card":
-				return "<div class='hideme timeline-el el-card el-with-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/"+id+".jpg' alt=''></div><div class='card-thumb'><img src='' alt=''><div class='thumb-shade'></div></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div><div class='view-card'><p>사건 설명 더보기</p></div></div><div class='card-share'><div class='share_fb'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/fb_icon_line_w.png' alt='페이스북' /></div><div class='share_tw'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/tw_icon_line_w.png' alt='트위터' /></div></div></div>";
+				return "<div class='hideme timeline-el el-card el-with-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='"+imgURL+id+".jpg' alt=''></div><div class='card-thumb'><img src='' alt=''><div class='thumb-shade'></div></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div><div class='view-card'><p>사건 설명 더보기</p></div></div><div class='card-share'><div class='share_fb'><img src='"+imgURL+"fb_icon_line_w.png' alt='페이스북' /></div><div class='share_tw'><img src='"+imgURL+"tw_icon_line_w.png' alt='트위터' /></div></div></div>";
 				break;
 			case "simple-card":
 				return "<div class='hideme timeline-el el-simple-card el-no-img "+id+"'><p class='el-year'><span class='year'></span><span class='spot'></span></p><div class='card-body'><div class='arrow'><img src='' alt=''></div><div class='card-text'><p class='card-title'></p><p class='card-desc-point'></p></div></div></div>";
@@ -92,18 +92,18 @@ $(function(){
 				}else if(data[d]["line"]=="left"){
 					$this_card.find(".arrow").addClass("arrow-left");
 				}
-				$this_card.find(".arrow img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arrow-up.png");
+				$this_card.find(".arrow img").attr("src", imgURL+"arrow-up.png");
 
 			}else{
 				if(data[d]["line"]=="center"){
 					$this_card.find(".arrow").addClass("arrow-up");
-					$this_card.find(".arrow img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arrow-up.png");
+					$this_card.find(".arrow img").attr("src", imgURL+"arrow-up.png");
 				}else if(data[d]["line"]=="right"){
 					$this_card.find(".arrow").addClass("arrow-right");
-					$this_card.find(".arrow img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arrow-right-2.png");
+					$this_card.find(".arrow img").attr("src", imgURL+"arrow-right-2.png");
 				}else if(data[d]["line"]=="left"){
 					$this_card.find(".arrow").addClass("arrow-left");
-					$this_card.find(".arrow img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arrow-left-2.png");
+					$this_card.find(".arrow img").attr("src", imgURL+"arrow-left-2.png");
 				}
 			}		
 
@@ -112,11 +112,11 @@ $(function(){
 			}
 
 			if( (data[d]["thumb"]!==null )&&$this_card.find(".card-thumb").length){
-				$this_card.find(".card-thumb img").attr("src", "http://img.khan.co.kr/spko/storytelling/2020/tracknroom/"+data[d]["id"]+".jpg");
+				$this_card.find(".card-thumb img").attr("src", imgURL+data[d]["id"]+".jpg");
 			}
 
 			if(data[d]["relCode"] !== null ){
-				$this_card.append("<div class='show-rel-card'><div class='rel-icon'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/rel-icon-2.png' alt='관련사건타래보기'><span class='icon-desc'>사건 타래 보기</span></div></div>");
+				$this_card.append("<div class='show-rel-card'><div class='rel-icon'><img src="+imgURL+"rel-icon-2.png' alt='관련사건타래보기'><span class='icon-desc'>사건 타래 보기</span></div></div>");
 				$this_card.find(".show-rel-card").attr("data-rel-id", data[d]["relCode"]);
 				$this_card.addClass("el-with-rel");
 			}
@@ -151,7 +151,7 @@ $(function(){
 	function addCardNavi(){
 		var exitIcon = (isMobile==true)? "exit-icon-b-2" : "exit-icon-or-big";
 		$(".timeline-el").each(function(index,item){
-			$(item).append("<div class='filter-card-navi'><div class='arr-up'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arr-up-or-bold.png' alt='필터링사건안에서이동'></div><div class='arr-down'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arr-down-or-bold.png' alt='필터링사건안에서이동'></div><div class='filter-exit'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/"+exitIcon+".png' alt='필터링끄기'></div><div class='arr-info'><span class='f_i'></span><span class='slash'>/</span><span class='total'></span></div></div>");
+			$(item).append("<div class='filter-card-navi'><div class='arr-up'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arr-up-or-bold.png' alt='이전'></div><div class='arr-down'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/arr-down-or-bold.png' alt='다음'></div><div class='filter-exit'><img src='http://img.khan.co.kr/spko/storytelling/2020/tracknroom/"+exitIcon+".png' alt='필터링끄기'></div><div class='arr-info'><span class='f_i'></span><span class='slash'>/</span><span class='total'></span></div></div>");
 		});
 	};
 
@@ -162,119 +162,15 @@ $(function(){
 			}
 		});
 
-		var pathS1e1 = document.getElementById("svg-s1-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS1e2 = document.getElementById("svg-s1-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS3e1 = document.getElementById("svg-s3-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS3e2 = document.getElementById("svg-s3-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS3e4 = document.getElementById("svg-s3-e4").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS3e3 = document.getElementById("svg-s3-e3").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS4e1 = document.getElementById("svg-s4-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS4e5 = document.getElementById("svg-s4-e5").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS4e4 = document.getElementById("svg-s4-e4").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS5e2 = document.getElementById("svg-s5-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS6e2 = document.getElementById("svg-s6-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS6e4 = document.getElementById("svg-s6-e4").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS7e2 = document.getElementById("svg-s7-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS8e5 = document.getElementById("svg-s8-e5").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS8e7 = document.getElementById("svg-s8-e7").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS8e9 = document.getElementById("svg-s8-e9").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS10e1 = document.getElementById("svg-s10-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS10e3 = document.getElementById("svg-s10-e3").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS10e4 = document.getElementById("svg-s10-e4").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS11e5 = document.getElementById("svg-s11-e5").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS11e6 = document.getElementById("svg-s11-e6").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS12e2 = document.getElementById("svg-s12-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS13e1 = document.getElementById("svg-s13-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS13e2 = document.getElementById("svg-s13-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS13e3 = document.getElementById("svg-s13-e3").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS13e12 = document.getElementById("svg-s13-e12").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS13e6 = document.getElementById("svg-s13-e6").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS13e7 = document.getElementById("svg-s13-e7").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS13e13 = document.getElementById("svg-s13-e13").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS14e1 = document.getElementById("svg-s14-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS14e2 = document.getElementById("svg-s14-e2").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS14e5 = document.getElementById("svg-s14-e5").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS14e6 = document.getElementById("svg-s14-e6").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS14e8 = document.getElementById("svg-s14-e8").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS14e11 = document.getElementById("svg-s14-e11").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
-		var pathS15e1 = document.getElementById("svg-s15-e1").appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));	
-		
-
-		if(!isMobile){
-			pathS1e1.setAttributeNS(null,"d","M0,0 Q200,600 0,4000");
-			pathS1e2.setAttributeNS(null,"d","M-100,0 Q00,500 -400,1900");
-			pathS3e1.setAttributeNS(null,"d","M300,0 Q-500,5000 400,21150");
-			pathS3e2.setAttributeNS(null,"d","M0,0 Q-100,250 0,400");
-			pathS3e4.setAttributeNS(null,"d","M0,0 Q500,500 350,1000");
-			pathS3e3.setAttributeNS(null,"d","M0,0 Q-100,700 100,1600");
-			pathS4e1.setAttributeNS(null,"d","M200,0 Q-100,100 -30,200");
-			pathS4e5.setAttributeNS(null,"d","M200,0 Q500,500 550,2300");
-			pathS4e4.setAttributeNS(null,"d","M120,0 Q600,4000 50,6650");
-			pathS5e2.setAttributeNS(null,"d","M0,0 Q600,250 350,700");
-			pathS6e2.setAttributeNS(null,"d","M0,0 Q-400,4500 120,5900");
-			pathS6e4.setAttributeNS(null,"d","M0,0 Q-400,6500 200,8200");
-			pathS7e2.setAttributeNS(null,"d","M0,0 Q-300,1700 350,2800");
-			pathS8e5.setAttributeNS(null,"d","M50,0 Q-300,3000 400,4500");
-			pathS8e7.setAttributeNS(null,"d","M100,0 Q1000,3000 50,9000");
-			pathS8e9.setAttributeNS(null,"d","M50,0 Q-100,2000 600,3100");
-			pathS10e1.setAttributeNS(null,"d","M100,0 Q500,600 300,1100");
-			pathS10e3.setAttributeNS(null,"d","M250,0 Q-200,2500 600,6300");
-			pathS10e4.setAttributeNS(null,"d","M50,0 Q-500,3000 300,7000");
-			pathS11e5.setAttributeNS(null,"d","M300,0 Q320,50 350,90");
-			pathS11e6.setAttributeNS(null,"d","M50,0 Q500,2000 0,8900");
-			pathS12e2.setAttributeNS(null,"d","M0,0 Q600,1200 400,2020");
-			pathS13e1.setAttributeNS(null,"d","M250,0 Q-100,2000 500,4150");
-			pathS13e2.setAttributeNS(null,"d","M50,0 Q-200,3000 400,4950");
-			pathS13e3.setAttributeNS(null,"d","M50,0 Q-200,3000 700,3500");
-			pathS13e6.setAttributeNS(null,"d","M50,0 Q-300,600 250,1220");
-			pathS13e7.setAttributeNS(null,"d","M50,0 Q-100,2500 420,3300");
-			pathS13e12.setAttributeNS(null,"d","M150,0 Q400,1200 0,2500");
-			pathS13e13.setAttributeNS(null,"d","M100,0 Q600,1000 50,1950");
-			pathS14e1.setAttributeNS(null,"d","M100,0 Q-100,1500 450,3150");		
-			pathS14e2.setAttributeNS(null,"d","M100,0 Q300,900 500,1780");
-			pathS14e5.setAttributeNS(null,"d","M80,0 Q200,500 100,1900");
-			pathS14e6.setAttributeNS(null,"d","M160,0 Q-100,500 100,2950");	
-			pathS14e8.setAttributeNS(null,"d","M300,0 Q-100,900 600,1920");
-			pathS14e11.setAttributeNS(null,"d","M220,0 Q400,1200 300,1550");
-			pathS15e1.setAttributeNS(null,"d","M200,0 Q350,300 300,400");		
-		}else if(isMobile==true){
-			pathS1e1.setAttributeNS(null,"d","M100,0 Q400,1000 200,3200");
-			pathS1e2.setAttributeNS(null,"d","M50,0 Q00,500 150,1400");
-			pathS3e1.setAttributeNS(null,"d","M200,0 Q700,8500 180,17300");
-			pathS3e2.setAttributeNS(null,"d","M50,0 Q-100,250 30,350");
-			pathS3e4.setAttributeNS(null,"d","M0,0 Q200,500 250,900");
-			pathS3e3.setAttributeNS(null,"d","M0,0 Q-100,700 150,1400");
-			pathS4e4.setAttributeNS(null,"d","M140,0 Q600,2000 150,5200");
-			pathS4e1.setAttributeNS(null,"d","M200,0 Q100,51 50,150");
-			pathS4e5.setAttributeNS(null,"d","M100,0 Q-100,500 250,1900");
-			pathS5e2.setAttributeNS(null,"d","M150,0 Q350,150 300,500");
-			pathS6e2.setAttributeNS(null,"d","M50,0 Q-150,2500 100,4700");
-			pathS6e4.setAttributeNS(null,"d","M100,0 Q-200,6500 200,6600");
-			pathS7e2.setAttributeNS(null,"d","M0,0 Q-100,1700 150,2300");
-			pathS8e5.setAttributeNS(null,"d","M100,0 Q-100,3000 250,3650");
-			pathS8e7.setAttributeNS(null,"d","M100,0 Q550,2000 150,7250");
-			pathS8e9.setAttributeNS(null,"d","M50,0 Q-100,1000 300,2400");
-			pathS10e1.setAttributeNS(null,"d","M100,0 Q250,600 250,700");
-			pathS10e3.setAttributeNS(null,"d","M100,0 Q-100,2500 200,5000");
-			pathS10e4.setAttributeNS(null,"d","M100,0 Q-100,3000 250,5650");
-			pathS11e5.setAttributeNS(null,"d","M230,0 Q300,100 220,130");
-			pathS11e6.setAttributeNS(null,"d","M70,0 Q-300,500 0,7500");
-			pathS12e2.setAttributeNS(null,"d","M150,0 Q400,700 100,1500");
-			pathS13e1.setAttributeNS(null,"d","M150,0 Q-200,2000 250,3280");
-			pathS13e2.setAttributeNS(null,"d","M50,0 Q-200,3000 300,4250");
-			pathS13e3.setAttributeNS(null,"d","M150,0 Q-100,1000 260,2830");
-			pathS13e6.setAttributeNS(null,"d","M50,0 Q-100,400 150,1100");
-			pathS13e7.setAttributeNS(null,"d","M50,0 Q-100,1200 220,2750");
-			pathS13e12.setAttributeNS(null,"d","M150,0 Q300,1200 100,2100");
-			pathS13e13.setAttributeNS(null,"d","M60,0 Q300,800 50,1600");
-			pathS14e1.setAttributeNS(null,"d","M100,0 Q-100,1500 250,2750");
-			pathS14e2.setAttributeNS(null,"d","M220,0 Q300,700 200,1520");
-			pathS14e5.setAttributeNS(null,"d","M160,0 Q300,500 100,1800");
-			pathS14e6.setAttributeNS(null,"d","M140,0 Q-100,500 100,2850");
-			pathS14e8.setAttributeNS(null,"d","M150,0 Q-50,500 300,1750");
-			pathS14e11.setAttributeNS(null,"d","M160,0 Q-50,1200 200,1500");
-		}
-	
+		pathValue.forEach(function(v,i,a){
+			var svgId = String("svg-s"+v.sec+"-e"+v.el);
+			var tempPathObj = document.getElementById(svgId).appendChild(document.createElementNS("http://www.w3.org/2000/svg", "path"));
+			if(!isMobile){
+				tempPathObj.setAttributeNS(null,"d",v.pc);
+			}else{
+				tempPathObj.setAttributeNS(null,"d",v.m);
+			}
+		});
 	};
 
 
@@ -556,13 +452,6 @@ $(function(){
 		$(".popUp-front").find(".popUp-card-point-text p").html(selectItemData["pointTxt"]);
 		$(".popUp-front").find(".popUp-card-full-text").html(selectItemData["fullTxt"]);
 		
-		/*
-		if(selectItemData["relCode"]!==null){
-			$(".popUp-body .show-rel-card").show();
-			$(".popUp-body .show-rel-card").attr("data-rel-id", selectItemData["relCode"]);
-		}else{
-			$(".popUp-body .show-rel-card").hide();
-		}*/
 
 		var tagArr = new Array;
 		if(selectItemData["tag"]!==null){
