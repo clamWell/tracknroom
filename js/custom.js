@@ -116,7 +116,7 @@ $(function(){
 			}
 
 			if(data[d]["relCode"] !== null ){
-				$this_card.append("<div class='show-rel-card'><div class='rel-icon'><img src="+imgURL+"rel-icon-2.png' alt='관련사건타래보기'><span class='icon-desc'>사건 타래 보기</span></div></div>");
+				$this_card.append("<div class='show-rel-card'><div class='rel-icon'><img src='"+imgURL+"rel-icon-2.png' alt='관련사건타래보기'><span class='icon-desc'>사건 타래 보기</span></div></div>");
 				$this_card.find(".show-rel-card").attr("data-rel-id", data[d]["relCode"]);
 				$this_card.addClass("el-with-rel");
 			}
