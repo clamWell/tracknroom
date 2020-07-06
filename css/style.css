@@ -401,7 +401,7 @@ svg .line-noraml { fill:none; stroke-width:1.2px; stroke:#ff6716; stroke-opacity
 #svg-s14-e1 {}
 #svg-s15-e1 {}
 #svg-s15-e3 {}
-
+#svg-s15-e2 {top: 0; right:0;}
 
 .timeline-el-focus svg path { stroke-opacity:2; stroke: #ff9c34; }
 .timeline-el-noPath svg path { stroke-opacity:0; stroke: none; stroke-width: 0px; }
@@ -629,6 +629,7 @@ color: #fff; line-height: 1.6; /* text-align: center;  */ }
 .s15-e6 { top: 1050px;}
 .s15-e7 { top: 1200px;}
 .s15-e8 { top: 0px; }
+.s15-e9 { top: 1350px; }
 
 /**** 사건개별 위치조정 ***/
 
@@ -1288,7 +1289,7 @@ margin: 10px auto;word-break: keep-all;font-weight: 300;}
 .s15-e5 { top: 850px;}
 .s15-e6 { top: 1050px;}
 .s15-e7 { top: 1230px;}
-
+.s15-e9 { top: 1450px;}
 
 /***** 직선 ****/
 .el-right svg { top: 0px; right:auto; left:0;}
@@ -1314,7 +1315,7 @@ margin: 10px auto;word-break: keep-all;font-weight: 300;}
 .rel-article { padding: 20px 15px;  box-sizing: border-box;}
 .rel-article .rel-box { }
 .rel-article .rel-box .rel-art-list { padding: 15px; }
-.rel-article .rel-box .rel-art-list ul li a {  font-size: 16px; line-height:1.5; }
+.rel-article .rel-box .rel-art-list ul li a {  font-size: 15px; line-height:1.4; }
 
 }
 

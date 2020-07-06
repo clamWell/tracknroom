@@ -1511,5 +1511,21 @@ var cardData = [
     "fullTxt": null,
     "tag": "가해자의 도구",
     "relCode": "웹하드카르텔"
+  },
+  {
+    "id": "s15-e9",
+    "sec": "s15",
+    "line": "right",
+    "lineType": "법",
+    "elType": "simple-card",
+    "thumb": null,
+    "ymd": "2020.07",
+    "shareAble": null,
+    "title": "법원, ‘웰컴 투 비디오’(W2V) 손모씨 미국 송환 불허 ",
+    "titleHidden": null,
+    "pointTxt": "서울 고등법원은 “W2V 국내 회원들에 대한 수사에 차질이 빚어질 수 있다”며 미국에 인도하지 않는다는 결정을 내렸고, 손씨는 판결 직후 석방됐다.",
+    "fullTxt": null,
+    "tag": "가해자의 도구",
+    "relCode": "다크웹"
   }
 ];
